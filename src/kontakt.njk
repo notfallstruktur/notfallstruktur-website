@@ -1,0 +1,35 @@
+---
+layout: base.njk
+title: "Über & Kontakt"
+permalink: /kontakt/
+---
+<div class="thread"><div class="wrap">
+    <div class="sec phead">
+      <p class="eyebrow">Mehr</p>
+      <h1 class="dot1">Verantwortlich für den Inhalt</h1>
+      <div class="person">
+        <img class="avatar" src="/img/237d588899.jpg" alt="Porträt Hanno Koller">
+        <div>
+          <p style="font-family:var(--f-head);font-size:26px">Hanno Koller</p>
+          <p>Arzt in Weiterbildung</p>
+          <p style="margin-top:6px;color:var(--ink2)">Im ersten Berufsleben Notfallsanitäter und Dipl. Rettungssanitäter</p>
+        </div>
+      </div>
+    </div>
+    <section class="sec part">
+      <h2 class="dot">Kontakt</h2>
+      <p>Hanno Koller<br>8055 Zürich, Schweiz<br>E-Mail: <span class="mail">kontakt(at)notfallstruktur.org</span></p>
+      <p><a class="lnk" href="http://www.linkedin.com/in/hanno-koller"><svg class="li" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><rect width="24" height="24" rx="4" fill="#0A66C2"/><path fill="#fff" d="M6.94 8.98H4.5V19h2.44V8.98ZM5.72 5a1.42 1.42 0 1 0 0 2.84 1.42 1.42 0 0 0 0-2.84ZM19.5 13.4c0-2.7-1.44-4.6-4-4.6-1.23 0-2.06.67-2.4 1.3V8.98h-2.34V19h2.44v-5.1c0-1.34.6-2.24 1.72-2.24 1.06 0 1.6.83 1.6 2.24V19h2.48v-5.6Z"/></svg>LinkedIn</a></p>
+      <form class="cf" id="cfForm" novalidate>
+        <label for="cfName">Dein Name</label>
+        <input id="cfName" name="name" type="text" autocomplete="name">
+        <label for="cfMail">E-Mail-Adresse</label>
+        <input id="cfMail" name="email" type="email" autocomplete="email" required>
+        <label for="cfMsg">Nachricht</label>
+        <textarea id="cfMsg" name="message" required></textarea>
+        {% if site.turnstileSiteKey %}<div class="cf-turnstile" data-sitekey="{{ site.turnstileSiteKey }}" data-language="de"></div>{% endif %}
+        <button type="submit">Absenden</button>
+      </form>
+      <p class="ok" id="cfOk" hidden>Danke für deine Nachricht.</p>
+    </section>
+  </div></div>

@@ -1,0 +1,16 @@
+{
+  "name": "notfallstruktur-website",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "eleventy",
+    "start": "eleventy --serve"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^3.0.0",
+    "markdown-it": "^14.1.0",
+    "@fontsource/jost": "^5.0.0",
+    "@fontsource/bricolage-grotesque": "^5.0.0",
+    "@fontsource/atkinson-hyperlegible": "^5.0.0"
+  }
+}

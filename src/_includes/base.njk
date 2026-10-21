@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>{% if page.url == "/" %}notfallstruktur.org | Struktur und Sicherheit für Notfalleinsätze{% else %}{{ title }} | notfallstruktur.org{% endif %}</title>
+<meta name="description" content="Kostenlose Lern- und Unterstützungsmaterialien für die (prä-)klinische Notfallmedizin: Rote Fäden, xABCDE-Anwendungshilfe, RSI-Checklisten.">
+<link rel="icon" href="/img/favicon.png">
+<link rel="stylesheet" href="/css/site.css">
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <a class="brand" href="/" aria-label="notfallstruktur.org, zur Startseite">
+      <img src="/img/59c2595c15.jpg" alt="">
+      <span><span class="name">notfall<b>struktur</b>.org</span><br><span class="tag">Struktur und Sicherheit für Notfalleinsätze</span></span>
+    </a>
+  </div>
+  <div class="navbar">
+    <div class="wrap">
+      <button class="menu-btn" id="menuBtn" type="button" aria-expanded="false" aria-controls="mainNav">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>Menü
+      </button>
+      <nav class="main" id="mainNav" aria-label="Hauptmenü">
+        <ul>
+          <li><a href="/">Start</a></li>
+          <li><a href="/rote-faeden/">Rote Fäden</a></li>
+          <li><a href="/anwendungshilfe/">xABCDE-Anwendungshilfe</a></li>
+          <li><a href="/rsi-checklisten/">RSI-Checklisten</a></li>
+          <li><details><summary>Hilfreiches</summary>
+            <ul>
+              <li><a href="/apps/">Apps &amp; Nachschlagewerke</a></li>
+              <li><a href="/foam/">FOAM &amp; Fortbildung</a></li>
+              <li><a href="/leitlinien/">Leitlinien &amp; Algorithmen</a></li>
+              <li><a href="/lebensretter/">Lebensretter werden</a></li>
+            </ul></details></li>
+          <li><a href="/selbst-in-not/">Selbst in Not?</a></li>
+          <li><details><summary>Mehr</summary>
+            <ul>
+              <li><a href="/feedback/">Feedback</a></li>
+              <li><a href="/kontakt/">Über &amp; Kontakt</a></li>
+              <li><a href="/nutzung/">Nutzung &amp; Haftung</a></li>
+              <li><a href="/weitergabe/">Weitergabe-Bedingungen</a></li>
+              <li><a href="/datenschutz/">Datenschutzerklärung</a></li>
+            </ul></details></li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</header>
+
+<main>
+{{ content | safe }}
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="col">
+      <div class="name">notfall<b>struktur</b>.org</div>
+      <p>Dieses Werk ist lizenziert unter einer <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/">Creative Commons Namensnennung, Nicht kommerziell, Keine Bearbeitungen 4.0 International Lizenz</a>.</p>
+    </div>
+    <div class="col">
+      <p class="mail">kontakt(at)notfallstruktur.org</p>
+      <p style="margin-top:6px"><a class="lnk" href="http://www.linkedin.com/in/hanno-koller"><svg class="li" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><rect width="24" height="24" rx="4" fill="#0A66C2"/><path fill="#fff" d="M6.94 8.98H4.5V19h2.44V8.98ZM5.72 5a1.42 1.42 0 1 0 0 2.84 1.42 1.42 0 0 0 0-2.84ZM19.5 13.4c0-2.7-1.44-4.6-4-4.6-1.23 0-2.06.67-2.4 1.3V8.98h-2.34V19h2.44v-5.1c0-1.34.6-2.24 1.72-2.24 1.06 0 1.6.83 1.6 2.24V19h2.48v-5.6Z"/></svg>LinkedIn</a></p>
+    </div>
+    <div class="col">
+      <ul>
+        <li><a href="/kontakt/">Über &amp; Kontakt</a></li>
+        <li><a href="/nutzung/">Nutzung &amp; Haftung</a></li>
+        <li><a href="/weitergabe/">Weitergabe-Bedingungen</a></li>
+        <li><a href="/datenschutz/">Datenschutzerklärung</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+<script>window.SITE={brevoUrl:{{ site.brevoUrl | dump | safe }},turnstile:{{ site.turnstileSiteKey | dump | safe }}};</script>
+<script src="/js/site.js" defer></script>
+{% if site.turnstileSiteKey %}<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>{% endif %}
+</body>
+</html>

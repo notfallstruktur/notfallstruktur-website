@@ -1,0 +1,31 @@
+backend:
+  name: github
+  repo: notfallstruktur/notfallstruktur-website
+  branch: main
+  base_url: https://sveltia-cms-auth.EINTRAGEN.workers.dev   # nach Einrichtung des Auth-Workers ersetzen
+
+locale: de
+media_folder: src/img/upload
+public_folder: /img/upload
+
+collections:
+  - name: aktuelles
+    label: Aktuelles
+    files:
+      - name: news
+        label: Aktuelles (Startseite)
+        file: src/_data/news.json
+        fields:
+          - name: eintraege
+            label: Einträge (oberster = neuester)
+            widget: list
+            fields:
+              - { name: datum, label: Datum, widget: datetime, format: "YYYY-MM-DD", time_format: false }
+              - { name: neu, label: "Als NEU markieren", widget: boolean, default: true, required: false }
+              - { name: text, label: Text, widget: markdown, buttons: [bold, italic, link] }
+  - name: textseiten
+    label: Textseiten
+    files:
+      - { name: nutzung, label: Nutzung, file: src/nutzung.md, fields: &f [ { name: layout, widget: hidden }, { name: permalink, widget: hidden }, { name: eyebrow, label: Rubrik }, { name: title, label: Menütitel }, { name: heading, label: Überschrift }, { name: body, label: Text, widget: markdown } ] }
+      - { name: weitergabe, label: Weitergabe, file: src/weitergabe.md, fields: *f }
+      - { name: datenschutz, label: Datenschutz, file: src/datenschutz.md, fields: *f }
