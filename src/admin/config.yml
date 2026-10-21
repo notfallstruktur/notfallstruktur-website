@@ -2,7 +2,7 @@ backend:
   name: github
   repo: notfallstruktur/notfallstruktur-website
   branch: main
-  base_url: https://sveltia-cms-auth.EINTRAGEN.workers.dev   # nach Einrichtung des Auth-Workers ersetzen
+  base_url: https://sveltia-cms-auth.h-koller.workers.dev
 
 locale: de
 media_folder: src/img/upload
