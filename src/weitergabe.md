@@ -6,7 +6,7 @@ heading: "Bedingungen zum Teilen & Weitergeben"
 permalink: /weitergabe/
 ---
 
-Die Website und deren Inhalte werden, mit Ausnahme von Grafiken und Fotografien, unter den Regeln einer Creative-Commons-Lizenz kostenfrei zur Verfügung gestellt, welche folgende Bedingungen umfasst:
+Die Website und deren Inhalte werden, mit Ausnahme von Grafiken, Fotografien und Smartphone-Apps unter den Regeln einer Creative-Commons-Lizenz kostenfrei zur Verfügung gestellt, welche folgende Bedingungen umfasst:
 
 - **Namensnennung:** Sie müssen angemessene Urheber- und Rechteangaben machen und einen [Link zur Lizenz](https://creativecommons.org/licenses/by-nc-nd/4.0/deed.de) beifügen.
 - **Nicht kommerziell:** Sie dürfen das Material nicht für kommerzielle Zwecke nutzen.
