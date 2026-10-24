@@ -364,8 +364,8 @@ ol.steps.mob{display:none}
 @media (max-width:820px){ol.steps.mob{display:grid}ol.steps > li.dsk,ol.steps > li.abbr{display:none}}
 
 /* Brevo-Newsletter */
-iframe.brevo{display:block;margin:16px 0 0;width:100%;max-width:640px;height:330px;border:0}
-@media (max-width:560px){iframe.brevo{height:380px}}
+iframe.brevo{display:block;margin:16px 0 0;width:100%;max-width:640px;height:440px;border:0}
+@media (max-width:560px){iframe.brevo{width:calc(100% / .82);max-width:none;height:520px;transform:scale(.82);transform-origin:0 0;margin-bottom:-94px}}
 
 /* Wissen & Ressourcen: Übersicht */
 .wgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px;margin-top:8px}
