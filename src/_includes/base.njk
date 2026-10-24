@@ -6,7 +6,7 @@
 <title>{% if page.url == "/" %}notfallstruktur.org | Struktur und Sicherheit für Notfalleinsätze{% else %}{{ title }} | notfallstruktur.org{% endif %}</title>
 <meta name="description" content="Kostenlose Lern- und Unterstützungsmaterialien für die (prä-)klinische Notfallmedizin: Rote Fäden, xABCDE-Anwendungshilfe, RSI-Checklisten.">
 <link rel="icon" href="/img/favicon.png">
-<link rel="stylesheet" href="/css/site.css">
+<link rel="stylesheet" href="/css/site.css?v={{ site.version }}">
 </head>
 <body>
 <header>
@@ -27,8 +27,9 @@
           <li><a href="/rote-faeden/">Rote Fäden</a></li>
           <li><a href="/anwendungshilfe/">xABCDE-Anwendungshilfe</a></li>
           <li><a href="/rsi-checklisten/">RSI-Checklisten</a></li>
-          <li><details><summary><a href="/wissen/">Wissen &amp; Ressourcen</a></summary>
+          <li><details><summary>Wissen &amp; Ressourcen</summary>
             <ul>
+              <li><a href="/wissen/">Übersicht</a></li>
               <li><a href="/foam/">FOAM &amp; Fortbildung</a></li>
               <li><a href="/leitlinien/">Leitlinien &amp; Algorithmen</a></li>
               <li><a href="/apps/">Apps, Rechner &amp; Nachschlagewerke</a></li>
@@ -36,7 +37,7 @@
               <li><a href="/pocus/">POCUS</a></li>
               <li><a href="/lebensretter/">First Responder</a></li>
             </ul></details></li>
-          <li><details><summary><a href="/kontakt/">Über</a></summary>
+          <li><details><summary>Über</summary>
             <ul>
               <li><a href="/kontakt/">Über &amp; Kontakt</a></li>
               <li><a href="/nutzung/">Nutzung &amp; Haftung</a></li>
@@ -75,7 +76,7 @@
 </footer>
 
 <script>window.SITE={brevoUrl:{{ site.brevoUrl | dump | safe }},turnstile:{{ site.turnstileSiteKey | dump | safe }}};</script>
-<script src="/js/site.js" defer></script>
+<script src="/js/site.js?v={{ site.version }}" defer></script>
 {% if site.turnstileSiteKey %}<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>{% endif %}
 </body>
 </html>
