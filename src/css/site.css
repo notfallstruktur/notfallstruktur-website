@@ -405,3 +405,5 @@ li.abbr dt .dtm{font-weight:400;margin-left:6px}
 
 li.abbr p.abbrlink{margin:8px 0 0;font-size:12px!important;line-height:1.4;font-weight:700;color:var(--ink2);text-align:center}
 li.abbr p.abbrlink a{display:inline-flex;align-items:center;gap:5px;font-size:12px!important;font-weight:700}
+
+.tile-mini{display:block;width:100%;max-width:220px;height:auto;align-self:center;margin-bottom:8px;border:1px solid var(--rule);box-shadow:0 4px 12px rgba(0,0,0,.08)}
