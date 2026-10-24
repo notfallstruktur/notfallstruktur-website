@@ -379,3 +379,10 @@ a.wcard .more{display:inline-block;margin-top:10px;text-decoration:underline}
 nav.main summary{display:flex;align-items:center;gap:6px}
 nav.main summary::after{content:"";width:6px;height:6px;border-right:1.5px solid currentColor;border-bottom:1.5px solid currentColor;transform:translateY(-2px) rotate(45deg);transition:transform .15s}
 nav.main details[open] > summary::after{transform:translateY(1px) rotate(-135deg)}
+
+/* RSI: Zwischenüberschrift statt Schritt 4 */
+ol.steps > li.zh{counter-increment:none;padding-left:0;font-family:var(--f-head);font-size:24px;font-weight:600;color:var(--ink)}
+ol.steps > li.zh::before{display:none}
+p.zh{font-family:var(--f-head);font-size:24px;font-weight:600;color:var(--ink);margin-top:18px}
+p.zh.mob{display:none}
+@media (max-width:820px){p.zh.mob{display:block}}
