@@ -10,6 +10,16 @@
     window.addEventListener('scroll',function(){ if(!t){t=true; requestAnimationFrame(upd);} },{passive:true}); upd();
   })();
 
+  /* Link kopieren */
+  document.querySelectorAll('.copybtn').forEach(function(b){
+    b.addEventListener('click',function(){
+      var t=b.getAttribute('data-copy'), l=b.querySelector('span');
+      function ok(){ l.textContent='Kopiert!'; setTimeout(function(){l.textContent='Kopieren';},2000); }
+      if(navigator.clipboard && navigator.clipboard.writeText){ navigator.clipboard.writeText(t).then(ok,function(){}); }
+      else { var x=document.createElement('textarea'); x.value=t; document.body.appendChild(x); x.select(); try{document.execCommand('copy'); ok();}catch(e){} x.remove(); }
+    });
+  });
+
   /* Externe Links immer in neuem Tab */
   document.querySelectorAll('a[href]').forEach(function(a){
     if(/^https?:/i.test(a.getAttribute('href')) && a.hostname!==location.hostname){ a.target='_blank'; a.rel='noopener noreferrer'; }
