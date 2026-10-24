@@ -1,9 +1,11 @@
+import { accessEmail } from "../_access.js";
 // Statistik-Seite, nur für den Betreiber.
 // Schutz: Cloudflare Access auf /statistik einrichten (siehe ANLEITUNG.md).
 const esc = (s) => String(s ?? "").replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
 
 export async function onRequestGet({ request, env }) {
-  if (!request.headers.get("cf-access-authenticated-user-email")) {
+  const nutzer = await accessEmail(request);
+  if (!nutzer) {
     return new Response("Kein Zugriff. Diese Seite ist durch Cloudflare Access geschützt.", { status: 403 });
   }
   if (!env.DB) return new Response("Datenbank nicht verbunden.", { status: 503 });
@@ -28,7 +30,7 @@ export async function onRequestGet({ request, env }) {
 table{border-collapse:collapse;width:100%;font-size:14px}th,td{text-align:left;padding:6px 8px;border-bottom:1px solid #ddd;vertical-align:top}th{background:#f3f3f3}
 td.n{text-align:right;font-variant-numeric:tabular-nums}pre{white-space:pre-wrap;margin:0;font-size:12px}a{color:#A3231B}</style></head><body>
 <h1>Statistik notfallstruktur.org</h1>
-<p>Angemeldet als ${esc(request.headers.get("cf-access-authenticated-user-email"))}. <a href="/statistik/feedback.csv">Feedback als CSV herunterladen</a></p>
+<p>Angemeldet als ${esc(nutzer)}. <a href="/statistik/feedback.csv">Feedback als CSV herunterladen</a></p>
 <h2>Downloads</h2>
 ${tab(["Datei", "Gesamt", "Letzte 30 Tage"], dl.map((r) => `<tr><td>${esc(r.datei)}</td><td class="n">${r.n}</td><td class="n">${d30[r.datei] || 0}</td></tr>`))}
 <h2>Seitenaufrufe</h2>
