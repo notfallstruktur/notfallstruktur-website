@@ -14,9 +14,21 @@
     var open=nav.classList.toggle('open');
     btn.setAttribute('aria-expanded',open?'true':'false');
   });
-  ds.forEach(function(d){d.addEventListener('toggle',function(){if(d.open){ds.forEach(function(o){if(o!==d)o.open=false;});}});});
+  ds.forEach(function(d){d.addEventListener('toggle',function(){if(d.open && !mq.matches){ds.forEach(function(o){if(o!==d)o.open=false;});}});});
+  /* Hauptpunkt mit Link: Klick öffnet die Seite, Untermenü per Hover (Desktop) bzw. immer offen (Handy) */
+  var mq=window.matchMedia('(max-width:820px)');
+  ds.forEach(function(d){
+    var a=d.querySelector('summary > a');
+    if(a) a.addEventListener('click',function(e){e.stopPropagation(); location.href=a.href; e.preventDefault();});
+    d.addEventListener('mouseenter',function(){if(!mq.matches) d.open=true;});
+    d.addEventListener('mouseleave',function(){if(!mq.matches) d.open=false;});
+    d.addEventListener('focusin',function(){if(!mq.matches) d.open=true;});
+    d.addEventListener('focusout',function(e){if(!mq.matches && !d.contains(e.relatedTarget)) d.open=false;});
+  });
+  function mobOpen(){ if(mq.matches) ds.forEach(function(d){d.open=true;}); }
+  mobOpen(); if(mq.addEventListener) mq.addEventListener('change',function(){ ds.forEach(function(d){d.open=mq.matches;}); });
   document.addEventListener('click',function(e){
-    if(!e.target.closest('nav.main details')) ds.forEach(function(d){d.open=false;});
+    if(!mq.matches && !e.target.closest('nav.main details')) ds.forEach(function(d){d.open=false;});
   });
 
   function formJSON(f){

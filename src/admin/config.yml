@@ -26,5 +26,4 @@ collections:
     label: Textseiten
     files:
       - { name: nutzung, label: Nutzung, file: src/nutzung.md, fields: &f [ { name: layout, widget: hidden }, { name: permalink, widget: hidden }, { name: eyebrow, label: Rubrik }, { name: title, label: Menütitel }, { name: heading, label: Überschrift }, { name: body, label: Text, widget: markdown } ] }
-      - { name: weitergabe, label: Weitergabe, file: src/weitergabe.md, fields: *f }
       - { name: datenschutz, label: Datenschutz, file: src/datenschutz.md, fields: *f }

@@ -4,7 +4,7 @@ const md = markdownIt({ html: true, linkify: true });
 
 export default function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy({ "src/img": "img", "src/media": "media", "src/css": "css", "src/js": "js", "src/admin": "admin" });
-  eleventyConfig.addPassthroughCopy({ "src/_headers": "_headers" });
+  eleventyConfig.addPassthroughCopy({ "src/_headers": "_headers", "src/_redirects": "_redirects" });
 
   // Schriften lokal ausliefern (keine Verbindung zu Google)
   const fonts = {

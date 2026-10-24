@@ -1,7 +1,7 @@
 ---
 layout: textseite.njk
 title: "Datenschutzerklärung"
-eyebrow: "Mehr"
+eyebrow: "Über"
 heading: "Datenschutzerklärung"
 permalink: /datenschutz/
 ---
@@ -72,6 +72,8 @@ Die Antworten werden zusammen mit dem Zeitpunkt der Übermittlung in einer Daten
 ## 7. Newsletter
 
 Für den Newsletter wird Brevo als Dienstleister verwendet.
+
+Das Anmeldeformular auf der Startseite wird direkt von Brevo geladen (eingebettetes Formular). Dabei werden beim Aufruf der Startseite technisch bedingt Daten wie IP-Adresse, Zeitpunkt des Zugriffs sowie Informationen über Browser und Gerät an Brevo übermittelt, auch wenn du dich nicht anmeldest. Brevo kann dabei eigene Cookies oder vergleichbare Technologien einsetzen.
 
 Soweit du dich für den Newsletter anmeldest, können insbesondere die E-Mail-Adresse, der Anmeldezeitpunkt, der Anmeldestatus und Informationen zur Bestätigung oder Abmeldung verarbeitet werden. Die Daten dienen der Verwaltung der Anmeldung und dem Versand des Newsletters.
 
