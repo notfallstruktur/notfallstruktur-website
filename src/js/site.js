@@ -2,6 +2,14 @@
   var btn=document.getElementById('menuBtn'), nav=document.getElementById('mainNav');
   var ds=[].slice.call(document.querySelectorAll('nav.main details'));
 
+  /* Startfoto beim Scrollen abdunkeln */
+  (function(){
+    var h=document.querySelector('.hero'); if(!h) return;
+    var t=false;
+    function upd(){ var r=h.getBoundingClientRect(); var p=Math.min(1,Math.max(0,-r.top/(r.height||1))); h.style.setProperty('--dim',(p*0.6).toFixed(3)); t=false; }
+    window.addEventListener('scroll',function(){ if(!t){t=true; requestAnimationFrame(upd);} },{passive:true}); upd();
+  })();
+
   /* Externe Links immer in neuem Tab */
   document.querySelectorAll('a[href]').forEach(function(a){
     if(/^https?:/i.test(a.getAttribute('href')) && a.hostname!==location.hostname){ a.target='_blank'; a.rel='noopener noreferrer'; }

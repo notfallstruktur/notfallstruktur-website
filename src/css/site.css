@@ -386,3 +386,7 @@ ol.steps > li.zh::before{display:none}
 p.zh{font-family:var(--f-head);font-size:24px;font-weight:600;color:var(--ink);margin-top:18px}
 p.zh.mob{display:none}
 @media (max-width:820px){p.zh.mob{display:block}}
+
+/* Startfoto etwas dunkler, beim Scrollen weiter abdunkeln */
+.hero img{filter:brightness(.88)}
+.hero::before{content:"";position:absolute;inset:0;background:#000;opacity:var(--dim,0);pointer-events:none;z-index:0}
