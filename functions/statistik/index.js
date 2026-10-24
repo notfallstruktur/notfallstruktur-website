@@ -3,6 +3,13 @@ import { tabellen } from "../_zaehler.js";
 // Statistik-Seite, nur für den Betreiber.
 // Schutz: Cloudflare Access auf /statistik einrichten (siehe ANLEITUNG.md).
 const landName = (c) => { try { return c && c !== "??" ? new Intl.DisplayNames(["de"], { type: "region" }).of(c) + " (" + c + ")" : "unbekannt"; } catch (e) { return c; } };
+const SEITEN = {"/":"Start","/rote-faeden/":"Rote Fäden","/anwendungshilfe/":"xABCDE-Anwendungshilfe","/rsi-checklisten/":"RSI-Checklisten","/wissen/":"Wissen & Ressourcen","/foam/":"FOAM & Fortbildung","/leitlinien/":"Leitlinien & Algorithmen","/apps/":"Apps, Rechner & Nachschlagewerke","/paediatrie/":"Pädiatrische Notfallhilfen","/pocus/":"POCUS","/lebensretter/":"First Responder","/kontakt/":"Über & Kontakt","/nutzung/":"Nutzung & Haftung","/datenschutz/":"Datenschutzerklärung","/feedback/":"Feedback","/selbst-in-not/":"Selbst in Not?"};
+const norm = (p) => { p = String(p || "/"); if (!p.endsWith("/")) p += "/"; return p; };
+function nurHauptseiten(rows) {
+  const m = {};
+  for (const r of rows) { const k = norm(r.seite); if (SEITEN[k]) m[k] = (m[k] || 0) + r.n; }
+  return m;
+}
 const esc = (s) => String(s ?? "").replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
 
 export async function onRequestGet({ request, env }) {
@@ -29,7 +36,9 @@ export async function onRequestGet({ request, env }) {
     q("SELECT id, name, email, nachricht, erstellt FROM nachrichten ORDER BY id DESC LIMIT 100")
   ]);
   const m30 = (rows, key) => Object.fromEntries(rows.map((r) => [r[key], r.n]));
-  const d30 = m30(dl30, "datei"), s30 = m30(seiten30, "seite");
+  const d30 = m30(dl30, "datei");
+  const sGes = nurHauptseiten(seiten), s30 = nurHauptseiten(seiten30);
+  const seitenListe = Object.keys(SEITEN).map((k) => ({ seite: k, n: sGes[k] || 0 })).sort((a, b) => b.n - a.n);
 
   const tab = (kopf, zeilen) => `<table><thead><tr>${kopf.map((k) => `<th>${k}</th>`).join("")}</tr></thead><tbody>${zeilen.join("") || `<tr><td colspan="${kopf.length}">Noch keine Daten</td></tr>`}</tbody></table>`;
 
@@ -50,7 +59,7 @@ ${tab(["Datei", "Land", "Gesamt"], dlLand.map((r) => `<tr><td>${esc(r.datei)}</t
 <h2>Downloads</h2>
 ${tab(["Datei", "Gesamt", "Letzte 30 Tage"], dl.map((r) => `<tr><td>${esc(r.datei)}</td><td class="n">${r.n}</td><td class="n">${d30[r.datei] || 0}</td></tr>`))}
 <h2>Seitenaufrufe</h2>
-${tab(["Seite", "Gesamt", "Letzte 30 Tage"], seiten.map((r) => `<tr><td>${esc(r.seite)}</td><td class="n">${r.n}</td><td class="n">${s30[r.seite] || 0}</td></tr>`))}
+${tab(["Seite", "Gesamt", "Letzte 30 Tage"], seitenListe.map((r) => `<tr><td>${esc(SEITEN[r.seite])}</td><td class="n">${r.n}</td><td class="n">${s30[r.seite] || 0}</td></tr>`))}
 <h2>Feedback (${fb.length})</h2>
 ${tab(["Datum", "Formular", "Antworten"], fb.map((r) => `<tr><td>${esc(r.erstellt)}</td><td>${esc(r.formular)}</td><td><pre>${esc(JSON.stringify(JSON.parse(r.antworten), null, 1))}</pre></td></tr>`))}
 <h2>Nachrichten aus dem Kontaktformular</h2>
