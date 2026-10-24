@@ -358,3 +358,7 @@ footer ul{list-style:none;margin:0;padding:0;display:grid;gap:4px}
 .prose blockquote{margin:18px 0 0;background:#FFF4D6;border:1px solid #E7C66B;padding:14px 18px;font-size:16px}
 .prose blockquote p{margin:0}
 @media (max-width:560px){.prose h2::before{left:-28.5px;width:12px;height:12px}}
+
+/* RSI mobil: Reihenfolge Text/Karte, Abkürzungen ausblenden */
+ol.steps.mob{display:none}
+@media (max-width:820px){ol.steps.mob{display:grid}ol.steps > li.dsk,ol.steps > li.abbr{display:none}}

@@ -16,7 +16,7 @@ Die angebotenen Inhalte richten sich an (angehendes) Rettungsfachpersonal, Auszu
 
 Lehrmeinungen und Empfehlungen in der Notfallmedizin befinden sich im stetigen Wandel. Trotz sorgfältiger Überprüfung besteht für die dargestellten Untersuchungs- und Handlungsempfehlungen, Medikamentenvorschläge und Verweise auf externe Inhalte kein Anspruch auf Vollständigkeit, Fehlerfreiheit oder Aktualität.
 
-Die angebotenen Checklisten, einschliesslich der RSI-Checkliste, dienen der Aus- und Weiterbildung sowie der strukturierten Vorbereitung notfallmedizinischer Abläufe. Genannte Medikamente sind als Vorschläge zu verstehen und stellen keine patientenindividuelle Therapieempfehlung dar. Die Auswahl, Indikation, Dosierung und Anwendung von Medikamenten müssen durch qualifiziertes Fachpersonal anhand der konkreten klinischen Situation, der aktuellen Fachinformationen und der geltenden lokalen Vorgaben eigenständig beurteilt werden. Die Checklisten ersetzen weder klinische Entscheidungsprozesse noch lokale Standards oder die fachliche Verantwortung der Anwenderinnen und Anwender.
+Die angebotenen Checklisten, einschließlich der RSI-Checkliste, dienen der Aus- und Weiterbildung sowie der strukturierten Vorbereitung notfallmedizinischer Abläufe. Genannte Medikamente sind als Vorschläge zu verstehen und stellen keine patientenindividuelle Therapieempfehlung dar. Die Auswahl, Indikation, Dosierung und Anwendung von Medikamenten müssen durch qualifiziertes Fachpersonal anhand der konkreten klinischen Situation, der aktuellen Fachinformationen und der geltenden lokalen Vorgaben eigenständig beurteilt werden. Die Checklisten ersetzen weder klinische Entscheidungsprozesse noch lokale Standards oder die fachliche Verantwortung der Anwenderinnen und Anwender.
 
 ## Haftung
 
@@ -32,8 +32,8 @@ Alle erkennbaren Personen haben der Veröffentlichung der entsprechenden Aufnahm
 
 ## Urheberrecht und Interessenskonflikte
 
-Soweit nicht anders angegeben, sind die Inhalte dieser Website geistiges Eigentum des Autors und urheberrechtlich geschützt. Eine Nutzung, Vervielfältigung oder Weiterverbreitung ausserhalb der gesetzlichen Schranken bedarf der vorherigen Zustimmung des Rechteinhabers.
+Soweit nicht anders angegeben, sind die Inhalte dieser Website geistiges Eigentum des Autors und urheberrechtlich geschützt. Eine Nutzung, Vervielfältigung oder Weiterverbreitung außerhalb der gesetzlichen Schranken bedarf der vorherigen Zustimmung des Rechteinhabers.
 
 Es bestehen keine geschäftlichen Beziehungen zu den Anbietern verlinkter Produkte oder Angebote. Hinweise auf solche Produkte oder Angebote stellen keine bezahlte Werbung dar, sofern nicht ausdrücklich anders gekennzeichnet.
 
-Die Produktions- und Betriebskosten des Projekts, einschliesslich Webhosting und Markenrechten, werden aus privaten Mitteln finanziert.
+Die Produktions- und Betriebskosten des Projekts, einschließlich Webhosting und Markenrechten, werden aus privaten Mitteln finanziert.

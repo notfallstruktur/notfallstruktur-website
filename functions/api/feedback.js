@@ -1,7 +1,7 @@
 // Speichert anonymes Feedback (Rote Fäden / RSI-Checklisten).
 import { json, leseJSON } from "../_lib.js";
 
-const FORMULARE = ["rote-faeden", "rsi"];
+const FORMULARE = ["allgemein", "rote-faeden", "rsi"];
 
 export async function onRequestPost({ request, env }) {
   if (!env.DB) return json({ ok: false, fehler: "Datenbank nicht verbunden" }, 503);

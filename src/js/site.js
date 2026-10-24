@@ -67,20 +67,18 @@
     });
   })();
 
-  /* Feedback Rote Fäden / Anwendungshilfe */
+  /* Feedback allgemein */
   (function(){
     var f=document.getElementById('fbForm'); if(!f) return;
-    var deat=f.querySelector('.q-deat'), ch=f.querySelector('.q-ch'), prf=f.querySelector('.fb-rf'), pah=f.querySelector('.fb-ah');
+    var deat=f.querySelector('.q-deat'), ch=f.querySelector('.q-ch');
     function upd(){
       var v=(f.querySelector('input[name=land]:checked')||{}).value;
-      ch.hidden=(v!=='Schweiz'); deat.hidden=(v==='Schweiz');
-      var w=[].map.call(f.querySelectorAll('input[name=was]:checked'),function(x){return x.value;});
-      prf.hidden=w.indexOf('Rote Fäden-Skript')<0; pah.hidden=w.indexOf('xABCDE-Anwendungshilfe')<0;
+      if(ch) ch.hidden=(v!=='Schweiz'); if(deat) deat.hidden=(v==='Schweiz');
     }
     f.addEventListener('change',upd); upd();
     f.addEventListener('submit',function(e){
       e.preventDefault();
-      send('/api/feedback',{formular:'rote-faeden',antworten:formJSON(f)})
+      send('/api/feedback',{formular:'allgemein',antworten:formJSON(f)})
         .then(function(){f.hidden=true; document.getElementById('fbThanks').hidden=false; window.scrollTo(0,0);})
         .catch(function(){fail(f,'Das Feedback konnte nicht gesendet werden. Bitte versuche es später noch einmal.');});
     });
