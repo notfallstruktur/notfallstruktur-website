@@ -15,7 +15,7 @@ Diese Datenschutzerklärung informiert über die Bearbeitung personenbezogener D
 **notfallstruktur.org**  
 Verantwortlich: Hanno Koller  
 8055 Zürich, Schweiz  
-E-Mail: kontakt@notfallstruktur.org
+E-Mail: kontakt(at)notfallstruktur.org
 
 Bei Fragen zum Datenschutz oder zur Bearbeitung personenbezogener Daten kannst du dich an die angegebene E-Mail-Adresse wenden.
 
@@ -121,7 +121,7 @@ Im Rahmen des anwendbaren Datenschutzrechts kannst du insbesondere Auskunft übe
 
 Anfragen kannst du an folgende Adresse richten:
 
-**kontakt@notfallstruktur.org**
+**kontakt(at)notfallstruktur.org**
 
 Soweit die Datenschutz-Grundverordnung der Europäischen Union (DSGVO) anwendbar ist, können zusätzliche Rechte nach dieser Verordnung bestehen, einschließlich des Rechts, sich bei einer zuständigen Datenschutzaufsichtsbehörde zu beschweren.
 
@@ -140,4 +140,4 @@ Diese Datenschutzerklärung kann angepasst werden, wenn sich die Website, die ei
 
 Es gilt die jeweils auf notfallstruktur.org veröffentlichte Fassung.
 
-**Kontakt:** kontakt@notfallstruktur.org
+**Kontakt:** kontakt(at)notfallstruktur.org
