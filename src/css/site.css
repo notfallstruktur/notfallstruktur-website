@@ -398,3 +398,5 @@ br.mbr{display:none}
 @media (max-width:820px){br.mbr{display:inline}}
 
 span.lvz{font-size:16px;white-space:nowrap}
+
+@media (max-width:820px){.split.nk.al{margin-top:32px}}
