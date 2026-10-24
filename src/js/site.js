@@ -2,6 +2,11 @@
   var btn=document.getElementById('menuBtn'), nav=document.getElementById('mainNav');
   var ds=[].slice.call(document.querySelectorAll('nav.main details'));
 
+  /* Externe Links immer in neuem Tab */
+  document.querySelectorAll('a[href]').forEach(function(a){
+    if(/^https?:/i.test(a.getAttribute('href')) && a.hostname!==location.hostname){ a.target='_blank'; a.rel='noopener noreferrer'; }
+  });
+
   /* Aktiver Menüpunkt */
   var path=location.pathname.replace(/index\.html$/,'');
   document.querySelectorAll('nav.main a').forEach(function(a){
