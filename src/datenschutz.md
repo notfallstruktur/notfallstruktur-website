@@ -40,9 +40,11 @@ Weitere Informationen:
 
 ## 4. Download- und Besucherzähler
 
-Für die Dateien zum Herunterladen (PDF) wird ein eigener Download-Zähler eingesetzt. Zusätzlich wird gezählt, wie oft die einzelnen Seiten der Website aufgerufen werden.
+Für die Dateien zum Herunterladen (PDF) wird ein eigener Download-Zähler eingesetzt. Zusätzlich wird gezählt, wie oft die einzelnen Seiten der Website aufgerufen werden und wie viele verschiedene Besucherinnen und Besucher die Website pro Tag hat.
 
-Gespeichert werden dabei ausschließlich der Name der Datei beziehungsweise die aufgerufene Seite, das Datum und die Anzahl der Aufrufe an diesem Tag. Es werden weder IP-Adressen noch Cookies, Gerätekennungen oder andere Merkmale gespeichert, die einen Rückschluss auf einzelne Besucherinnen und Besucher zulassen. Es werden keine Besucherprofile erstellt. Automatisierte Zugriffe (zum Beispiel durch Suchmaschinen) werden nach Möglichkeit nicht mitgezählt.
+Gespeichert werden dabei der Name der Datei beziehungsweise die aufgerufene Seite, das Datum, das Land, aus dem der Aufruf erfolgt (abgeleitet aus der IP-Adresse durch Cloudflare), sowie die Anzahl der Aufrufe. Die IP-Adresse selbst wird nicht gespeichert. Es werden keine Cookies gesetzt und keine Besucherprofile erstellt.
+
+Um verschiedene Besucherinnen und Besucher pro Tag zählen zu können, wird aus IP-Adresse, Browserkennung und einem täglich neu erzeugten Zufallswert eine nicht umkehrbare Prüfsumme gebildet. Diese Prüfsumme wird nur für den laufenden Tag gespeichert. Der Zufallswert und die Prüfsummen werden am Folgetag gelöscht; danach ist eine Wiedererkennung nicht mehr möglich. Ein Wiedererkennen über mehrere Tage hinweg findet nicht statt. Automatisierte Zugriffe (zum Beispiel durch Suchmaschinen) werden nach Möglichkeit nicht mitgezählt.
 
 Die Zahlen dienen ausschließlich dazu, das Angebot weiterzuentwickeln. Sie werden in einer Datenbank bei Cloudflare (Cloudflare D1) gespeichert und sind nur dem Betreiber zugänglich.
 

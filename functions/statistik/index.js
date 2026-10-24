@@ -1,6 +1,8 @@
 import { accessEmail } from "../_access.js";
+import { tabellen } from "../_zaehler.js";
 // Statistik-Seite, nur für den Betreiber.
 // Schutz: Cloudflare Access auf /statistik einrichten (siehe ANLEITUNG.md).
+const landName = (c) => { try { return c && c !== "??" ? new Intl.DisplayNames(["de"], { type: "region" }).of(c) + " (" + c + ")" : "unbekannt"; } catch (e) { return c; } };
 const esc = (s) => String(s ?? "").replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
 
 export async function onRequestGet({ request, env }) {
@@ -10,7 +12,14 @@ export async function onRequestGet({ request, env }) {
   }
   if (!env.DB) return new Response("Datenbank nicht verbunden.", { status: 503 });
 
+  await tabellen(env.DB);
   const q = (sql) => env.DB.prepare(sql).all().then((r) => r.results);
+  const [bes, laender, dlLand] = await Promise.all([
+    q("SELECT tag, anzahl FROM besucher_tag ORDER BY tag DESC LIMIT 60"),
+    q("SELECT land, SUM(anzahl) n, SUM(CASE WHEN tag >= date('now','-30 day') THEN anzahl ELSE 0 END) n30 FROM seiten_land GROUP BY land ORDER BY n DESC"),
+    q("SELECT datei, land, SUM(anzahl) n FROM downloads_land GROUP BY datei, land ORDER BY datei, n DESC")
+  ]);
+  const besSumme30 = bes.filter((r) => r.tag >= new Date(Date.now() - 30*864e5).toISOString().slice(0,10)).reduce((a, r) => a + r.anzahl, 0);
   const [dl, dl30, seiten, seiten30, fb, msg] = await Promise.all([
     q("SELECT datei, SUM(anzahl) n FROM downloads GROUP BY datei ORDER BY n DESC"),
     q("SELECT datei, SUM(anzahl) n FROM downloads WHERE tag >= date('now','-30 day') GROUP BY datei"),
@@ -31,6 +40,13 @@ table{border-collapse:collapse;width:100%;font-size:14px}th,td{text-align:left;p
 td.n{text-align:right;font-variant-numeric:tabular-nums}pre{white-space:pre-wrap;margin:0;font-size:12px}a{color:#A3231B}</style></head><body>
 <h1>Statistik notfallstruktur.org</h1>
 <p>Angemeldet als ${esc(nutzer)}. <a href="/statistik/feedback.csv">Feedback als CSV herunterladen</a></p>
+<h2>Verschiedene Besucher pro Tag</h2>
+<p>Summe letzte 30 Tage: <b>${besSumme30}</b> (wer an mehreren Tagen kommt, zählt mehrfach; gezählt seit Einführung am 24.10.2026)</p>
+${tab(["Tag", "Besucher"], bes.map((r) => `<tr><td>${esc(r.tag)}</td><td class="n">${r.anzahl}</td></tr>`))}
+<h2>Seitenaufrufe nach Land</h2>
+${tab(["Land", "Gesamt", "Letzte 30 Tage"], laender.map((r) => `<tr><td>${esc(landName(r.land))}</td><td class="n">${r.n}</td><td class="n">${r.n30}</td></tr>`))}
+<h2>Downloads nach Land</h2>
+${tab(["Datei", "Land", "Gesamt"], dlLand.map((r) => `<tr><td>${esc(r.datei)}</td><td>${esc(landName(r.land))}</td><td class="n">${r.n}</td></tr>`))}
 <h2>Downloads</h2>
 ${tab(["Datei", "Gesamt", "Letzte 30 Tage"], dl.map((r) => `<tr><td>${esc(r.datei)}</td><td class="n">${r.n}</td><td class="n">${d30[r.datei] || 0}</td></tr>`))}
 <h2>Seitenaufrufe</h2>
