@@ -420,3 +420,5 @@ li.abbr p.abbrlink a{display:inline-flex;align-items:center;gap:5px;font-size:12
 .sharebtn:hover{background:var(--tint)}
 
 .langsw{display:flex;gap:8px;margin-top:14px}.langsw button{font:inherit;font-size:.9em;padding:6px 14px;border-radius:999px;border:1px solid currentColor;background:transparent;color:inherit;cursor:pointer;opacity:.6}.langsw button[aria-pressed="true"]{opacity:1;font-weight:700}
+.prose h3,.langblk h3{font-size:21px;line-height:1.25;margin:30px 0 0}.langblk p{margin-top:12px}.langblk ul{margin-top:12px;padding-left:20px}.langblk li{margin-top:6px}
+.prose a{overflow-wrap:anywhere}
