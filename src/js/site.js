@@ -149,3 +149,8 @@
     window.addEventListener('resize',fit); window.addEventListener('load',fit); fit();
   })();
 })();
+
+(function(){var sw=document.querySelector('.langsw');if(!sw)return;
+function set(l){document.querySelectorAll('.langblk').forEach(function(b){b.hidden=b.lang!==l});sw.querySelectorAll('button').forEach(function(x){x.setAttribute('aria-pressed',x.dataset.lang===l)});document.documentElement.lang=l}
+sw.addEventListener('click',function(e){var l=e.target.dataset&&e.target.dataset.lang;if(l){set(l);history.replaceState(null,'','#'+l)}});
+set(location.hash==='#en'?'en':'de')})();

@@ -6,7 +6,7 @@ heading: "Datenschutzerklärung"
 permalink: /datenschutz/
 ---
 
-**Stand: 24. Oktober 2026**
+**Stand: 25. Oktober 2026**
 
 Diese Datenschutzerklärung informiert über die Bearbeitung personenbezogener Daten im Zusammenhang mit der Nutzung von notfallstruktur.org.
 
@@ -99,25 +99,55 @@ Externe Links allein bedeuten nicht zwangsläufig, dass beim bloßen Aufruf von 
 PayPal-Datenschutzhinweise:
 <https://www.paypal.com/ch/legalhub/paypal/privacy-full>
 
-## 9. Cookies und vergleichbare Technologien
+## 9. Smartwatch-Apps (ALS-Timer und RSI-Timer)
+
+Die Apps „ALS-Timer“ und „RSI-Timer“ (jeweils Basic und Pro) laufen auf Garmin-Uhren und werden über den Connect IQ Store von Garmin bezogen. Für Download, Installation und Updates gelten die Datenschutzbestimmungen von Garmin; ich habe darauf keinen Einfluss und erhalte aus dem Store keine personenbezogenen Daten über einzelne Nutzende.
+
+### Was die Apps selbst tun
+
+Die Apps erheben keine personenbezogenen Daten und senden keine Daten ins Internet oder an Dritte. Es gibt keine Konten, keine Werbung, keine Analyse- oder Tracking-Funktionen und keine Verbindung zu notfallstruktur.org.
+
+Auf der Uhr gespeichert werden ausschließlich die Einstellungen und der Verlauf der letzten Übungssitzung (Zeiten und Einträge wie Adrenalin- oder Rhythmus-Eintrag). Diese Daten bleiben auf der Uhr und werden beim Löschen der App entfernt. Ich habe keinen Zugriff darauf.
+
+Während einer Sitzung hält die App das Display an. Dafür läuft eine Hintergrund-Aktivität der Uhr (Berechtigung „Fit“). Sie wird beim Beenden verworfen und nicht im Aktivitätenverlauf gespeichert, außer SAVE VITALS ist eingeschaltet.
+
+### Optional: SAVE VITALS (nur Pro-Editionen)
+
+SAVE VITALS ist standardmäßig ausgeschaltet. Nur wenn Sie es einschalten, wird die Übungssitzung als Aktivität „ALS scenario” bzw. „RSI scenario” auf der Uhr gespeichert, einschließlich Ihrer eigenen Herzfrequenz.
+
+Das ist ein Gesundheitsdatum. Es entsteht und bleibt auf Ihrer Uhr. Die App übermittelt es nicht. Wie die Uhr die Aktivität weiter behandelt (z. B. Synchronisierung mit Garmin Connect), richtet sich nach Ihren Garmin-Einstellungen und den Datenschutzbestimmungen von Garmin.
+
+Sie können SAVE VITALS jederzeit ausschalten und gespeicherte Aktivitäten über die Garmin-Funktionen löschen.
+
+### Keine Patientendaten
+
+Die Apps sind für Training und Ausbildung gedacht. Geben Sie in den Apps und in Feedback-Formularen keine Patientendaten oder andere Angaben zu echten Personen ein.
+
+### Feedback
+
+Wenn Sie mir über die Webseite Feedback schicken, gelten die Angaben weiter oben zu Kontakt- und Feedback-Formularen.
+
+Diese Hinweise gibt es auch als eigene Seite auf Deutsch und Englisch: [notfallstruktur.org/smartwatch-apps](/smartwatch-apps/)
+
+## 10. Cookies und vergleichbare Technologien
 
 Die Website ist darauf ausgerichtet, keine eigenen Cookies zu Werbe- oder Analysezwecken einzusetzen. Der Download-Zähler soll ebenfalls ohne Cookies funktionieren.
 
 Technisch notwendige Verarbeitungen durch Hosting-, Sicherheits- oder andere Dienstleister bleiben davon unberührt. Bei eingebundenen externen Diensten können weitere Technologien zur Speicherung oder Wiedererkennung zum Einsatz kommen.
 
-## 10. Empfänger und Datenübermittlungen
+## 11. Empfänger und Datenübermittlungen
 
 Daten können an technische Dienstleister übermittelt werden, soweit dies für den Betrieb der Website oder eine ausdrücklich genutzte Funktion erforderlich ist. Dazu können insbesondere Hosting-, E-Mail- und Newsletter-Dienstleister gehören.
 
 Bei der Nutzung externer Dienste können Daten gegebenenfalls auch außerhalb der Schweiz bearbeitet werden. Für solche Übermittlungen gelten die anwendbaren gesetzlichen Voraussetzungen und Schutzmaßnahmen.
 
-## 11. Aufbewahrung und Datensicherheit
+## 12. Aufbewahrung und Datensicherheit
 
 Personenbezogene Daten werden nur so lange aufbewahrt, wie dies für den jeweiligen Zweck erforderlich ist oder gesetzliche Aufbewahrungspflichten bestehen.
 
 Es werden angemessene technische und organisatorische Maßnahmen angestrebt, um Daten vor unbefugtem Zugriff, Verlust, Veränderung und Offenlegung zu schützen. Eine absolute Sicherheit der Datenübertragung über das Internet kann nicht garantiert werden.
 
-## 12. Rechte betroffener Personen
+## 13. Rechte betroffener Personen
 
 Im Rahmen des anwendbaren Datenschutzrechts kannst du insbesondere Auskunft über die Bearbeitung deiner personenbezogenen Daten verlangen und gegebenenfalls deren Berichtigung oder Löschung beantragen. Weitere Rechte können abhängig vom anwendbaren Recht und den Umständen der Bearbeitung bestehen.
 
@@ -130,13 +160,13 @@ Soweit die Datenschutz-Grundverordnung der Europäischen Union (DSGVO) anwendbar
 Für die Schweiz bietet der Eidgenössische Datenschutz- und Öffentlichkeitsbeauftragte (EDÖB) weitere Informationen:
 <https://www.edoeb.admin.ch/>
 
-## 13. Anwendbares Datenschutzrecht
+## 14. Anwendbares Datenschutzrecht
 
 Die Bearbeitung personenbezogener Daten richtet sich insbesondere nach dem anwendbaren Schweizer Datenschutzrecht.
 
 Soweit die Datenschutz-Grundverordnung der Europäischen Union (DSGVO) aufgrund der konkreten Umstände anwendbar ist, werden deren einschlägige Anforderungen berücksichtigt.
 
-## 14. Aktualisierung dieser Datenschutzerklärung
+## 15. Aktualisierung dieser Datenschutzerklärung
 
 Diese Datenschutzerklärung kann angepasst werden, wenn sich die Website, die eingesetzten Dienste oder die rechtlichen Anforderungen ändern.
 
