@@ -72,7 +72,7 @@ Sie nutzen die Apps auf eigene fachliche Verantwortung. Sie sind allein dafür v
 
 ### Haftung
 
-Soweit gesetzlich zulässig, schließe ich die Haftung für Schäden aus, die aus der Nutzung der Apps entstehen (auch bei Störungen, Ausfällen, Fehlalarmen, leerem Akku, Verbindungs- oder Gerätefehlern). Zwingende gesetzliche Haftung, insbesondere bei Absicht und grober Fahrlässigkeit, bleibt unberührt. Die Apps werden „wie besehen“ bereitgestellt; es besteht kein Anspruch auf Verfügbarkeit, Support oder bestimmte Funktionen. Einzelne Funktionen („Pro”) können zeitlich begrenzt kostenlos sein und später kostenpflichtig oder eingeschränkt werden.
+Soweit gesetzlich zulässig, schließe ich die Haftung für Schäden aus, die aus der Nutzung der Apps entstehen (auch bei Störungen, Ausfällen, Fehlalarmen, leerem Akku, Verbindungs- oder Gerätefehlern). Zwingende gesetzliche Haftung, insbesondere bei Absicht und grober Fahrlässigkeit, bleibt unberührt. Die Apps werden „wie besehen“ bereitgestellt; es besteht kein Anspruch auf Verfügbarkeit, Support oder bestimmte Funktionen.
 
 ### Urheberrecht und Nutzung
 

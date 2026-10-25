@@ -17,7 +17,7 @@ Verantwortlich: Hanno Koller
 8055 Zürich, Schweiz  
 E-Mail: kontakt(at)notfallstruktur.org
 
-Bei Fragen zum Datenschutz oder zur Bearbeitung personenbezogener Daten kannst du dich an die angegebene E-Mail-Adresse wenden.
+Bei Fragen zum Datenschutz oder zur Bearbeitung personenbezogener Daten können Sie sich an die angegebene E-Mail-Adresse wenden.
 
 ## 2. Allgemeine Hinweise
 
@@ -52,7 +52,7 @@ Unabhängig davon können beim Abruf von Seiten und Dateien technische Zugriffsd
 
 ## 5. Kontaktaufnahme per E-Mail und Kontaktformular
 
-Wenn du per E-Mail oder über das Kontaktformular Kontakt aufnimmst, werden die von dir übermittelten Angaben, insbesondere deine E-Mail-Adresse, ein gegebenenfalls angegebener Name und der Inhalt deiner Nachricht, zur Bearbeitung der Anfrage verwendet.
+Wenn Sie per E-Mail oder über das Kontaktformular Kontakt aufnehmen, werden die von Ihnen übermittelten Angaben, insbesondere Ihre E-Mail-Adresse, ein gegebenenfalls angegebener Name und der Inhalt Ihrer Nachricht, zur Bearbeitung der Anfrage verwendet.
 
 Nachrichten aus dem Kontaktformular werden in einer Datenbank bei Cloudflare (Cloudflare D1) gespeichert, auf die nur der Betreiber Zugriff hat.
 
@@ -67,17 +67,17 @@ Weitere Informationen:
 
 ## 6. Feedback-Formulare
 
-Über die Feedback-Formulare kannst du anonym eine Rückmeldung zur Website und zu einzelnen Angeboten geben. Abgefragt werden nur die im Formular angezeigten Angaben (zum Beispiel Einschätzungen, freie Textantworten, Land und Tätigkeitsbereich). Name und E-Mail-Adresse werden nicht abgefragt.
+Über die Feedback-Formulare können Sie anonym eine Rückmeldung zur Website und zu einzelnen Angeboten geben. Abgefragt werden nur die im Formular angezeigten Angaben (zum Beispiel Einschätzungen, freie Textantworten, Land und Tätigkeitsbereich). Name und E-Mail-Adresse werden nicht abgefragt.
 
-Die Antworten werden zusammen mit dem Zeitpunkt der Übermittlung in einer Datenbank bei Cloudflare (Cloudflare D1) gespeichert, auf die nur der Betreiber Zugriff hat. Sie dienen ausschließlich der Verbesserung des Angebots. Bitte gib in freien Textfeldern keine Angaben ein, die dich oder andere Personen identifizieren, insbesondere keine Patientendaten.
+Die Antworten werden zusammen mit dem Zeitpunkt der Übermittlung in einer Datenbank bei Cloudflare (Cloudflare D1) gespeichert, auf die nur der Betreiber Zugriff hat. Sie dienen ausschließlich der Verbesserung des Angebots. Bitte geben Sie in freien Textfeldern keine Angaben ein, die Sie oder andere Personen identifizieren, insbesondere keine Patientendaten.
 
 ## 7. Newsletter
 
 Für den Newsletter wird Brevo als Dienstleister verwendet.
 
-Das Anmeldeformular auf der Startseite wird direkt von Brevo geladen (eingebettetes Formular). Dabei werden beim Aufruf der Startseite technisch bedingt Daten wie IP-Adresse, Zeitpunkt des Zugriffs sowie Informationen über Browser und Gerät an Brevo übermittelt, auch wenn du dich nicht anmeldest. Brevo kann dabei eigene Cookies oder vergleichbare Technologien einsetzen.
+Das Anmeldeformular auf der Startseite wird direkt von Brevo geladen (eingebettetes Formular). Dabei werden beim Aufruf der Startseite technisch bedingt Daten wie IP-Adresse, Zeitpunkt des Zugriffs sowie Informationen über Browser und Gerät an Brevo übermittelt, auch wenn Sie sich nicht anmelden. Brevo kann dabei eigene Cookies oder vergleichbare Technologien einsetzen.
 
-Soweit du dich für den Newsletter anmeldest, können insbesondere die E-Mail-Adresse, der Anmeldezeitpunkt, der Anmeldestatus und Informationen zur Bestätigung oder Abmeldung verarbeitet werden. Die Daten dienen der Verwaltung der Anmeldung und dem Versand des Newsletters.
+Soweit Sie sich für den Newsletter anmelden, können insbesondere die E-Mail-Adresse, der Anmeldezeitpunkt, der Anmeldestatus und Informationen zur Bestätigung oder Abmeldung verarbeitet werden. Die Daten dienen der Verwaltung der Anmeldung und dem Versand des Newsletters.
 
 Eine Abmeldung ist jederzeit über den entsprechenden Abmeldelink möglich, sofern dieser im Newsletter bereitgestellt wird.
 
@@ -90,7 +90,7 @@ Weitere Informationen:
 
 Die Website kann Links zu externen Websites und Diensten enthalten, beispielsweise zu medizinischen Informationsangeboten, App-Plattformen oder PayPal für freiwillige Unterstützungszahlungen.
 
-Wenn du einen solchen Link anklickst, gelten für die anschließende Nutzung die Datenschutzbestimmungen des jeweiligen Anbieters. Dieser kann im Rahmen seiner Dienste eigene personenbezogene Daten bearbeiten.
+Wenn Sie einen solchen Link anklicken, gelten für die anschließende Nutzung die Datenschutzbestimmungen des jeweiligen Anbieters. Dieser kann im Rahmen seiner Dienste eigene personenbezogene Daten bearbeiten.
 
 Bei freiwilligen Unterstützungszahlungen werden gegebenenfalls anfallende Zahlungs- und Kontaktdaten durch den jeweils verwendeten Zahlungsdienst verarbeitet. Welche Daten dabei konkret anfallen, richtet sich nach dem gewählten Dienst und dem jeweiligen Zahlungsvorgang.
 
@@ -149,9 +149,9 @@ Es werden angemessene technische und organisatorische Maßnahmen angestrebt, um 
 
 ## 13. Rechte betroffener Personen
 
-Im Rahmen des anwendbaren Datenschutzrechts kannst du insbesondere Auskunft über die Bearbeitung deiner personenbezogenen Daten verlangen und gegebenenfalls deren Berichtigung oder Löschung beantragen. Weitere Rechte können abhängig vom anwendbaren Recht und den Umständen der Bearbeitung bestehen.
+Im Rahmen des anwendbaren Datenschutzrechts können Sie insbesondere Auskunft über die Bearbeitung Ihrer personenbezogenen Daten verlangen und gegebenenfalls deren Berichtigung oder Löschung beantragen. Weitere Rechte können abhängig vom anwendbaren Recht und den Umständen der Bearbeitung bestehen.
 
-Anfragen kannst du an folgende Adresse richten:
+Anfragen können Sie an folgende Adresse richten:
 
 **kontakt(at)notfallstruktur.org**
 
