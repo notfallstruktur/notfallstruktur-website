@@ -105,7 +105,7 @@ Die Apps „ALS-Timer“ und „RSI-Timer“ (jeweils Basic und Pro) laufen auf 
 
 ### Was die Apps selbst tun
 
-Die Apps erheben keine personenbezogenen Daten und senden keine Daten ins Internet oder an Dritte. Es gibt keine Konten, keine Werbung, keine Analyse- oder Tracking-Funktionen und keine Verbindung zu notfallstruktur.org.
+Ich erhebe, empfange oder speichere über die Apps keine personenbezogenen Daten. Die Apps senden keine Daten ins Internet oder an Dritte. Es gibt keine Konten, keine Werbung, keine Analyse- oder Tracking-Funktionen und keine Verbindung zu notfallstruktur.org. Daten, die die App auf Ihrer Uhr ablegt, verbleiben ausschließlich dort und unterliegen Ihrer Kontrolle.
 
 Auf der Uhr gespeichert werden ausschließlich die Einstellungen und der Verlauf der letzten Übungssitzung (Zeiten und Einträge wie Adrenalin- oder Rhythmus-Eintrag). Diese Daten bleiben auf der Uhr und werden beim Löschen der App entfernt. Ich habe keinen Zugriff darauf.
 
@@ -115,7 +115,7 @@ Während einer Sitzung hält die App das Display an. Dafür läuft eine Hintergr
 
 SAVE VITALS ist standardmäßig ausgeschaltet. Nur wenn Sie es einschalten, wird die Übungssitzung als Aktivität „ALS scenario” bzw. „RSI scenario” auf der Uhr gespeichert, einschließlich Ihrer eigenen Herzfrequenz.
 
-Das ist ein Gesundheitsdatum. Es entsteht und bleibt auf Ihrer Uhr. Die App übermittelt es nicht. Wie die Uhr die Aktivität weiter behandelt (z. B. Synchronisierung mit Garmin Connect), richtet sich nach Ihren Garmin-Einstellungen und den Datenschutzbestimmungen von Garmin.
+Herzfrequenzdaten gelten als Gesundheitsdaten. Sie werden von Ihrer Uhr erfasst und gespeichert, nicht von mir; sie bleiben auf Ihrer Uhr. Die App übermittelt sie nicht, ich erhalte sie nicht und habe keinen Zugriff darauf. Wie die Uhr die Aktivität weiter behandelt (z. B. Synchronisierung mit Garmin Connect), richtet sich nach Ihren Garmin-Einstellungen und den Datenschutzbestimmungen von Garmin.
 
 Sie können SAVE VITALS jederzeit ausschalten und gespeicherte Aktivitäten über die Garmin-Funktionen löschen.
 
