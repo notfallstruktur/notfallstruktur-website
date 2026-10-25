@@ -46,3 +46,44 @@ Eine Weitergabe ist, ganz im Sinne von [FOAM](/foam/) (Free Open Access Medical 
 - **Keine weiteren Einschränkungen:** Sie dürfen keine zusätzlichen Klauseln oder technische Verfahren einsetzen, die anderen rechtlich irgendetwas untersagen, was die Lizenz erlaubt.
 
 Eine beabsichtigte Verwendung von grafischen Inhalten, Veröffentlichungen in Printmedien oder Vervielfältigungen zu kommerziellen Zwecken jeglicher Art erfordert eine vorherige Genehmigung durch den Autor. Gleiches gilt für eine Nutzung, Vervielfältigung oder Weiterverbreitung außerhalb der gesetzlichen Schranken und dieser Lizenzbedingungen.
+
+## Smartwatch-Apps (ALS-Timer und RSI-Timer)
+
+### Definierte Verwendungszwecke
+
+Die Apps dienen ausschließlich dem Training mit zeitlicher Dokumentation:
+
+- für Advanced-Life-Support-Übungen bei Erwachsenen nach den ERC-Leitlinien 2025 (ALS-Timer, Basic- und Pro-Edition),
+- für Notfallnarkose-Szenarien (RSI-Timer, Basic- und Pro-Edition).
+
+Weitere Verwendungszwecke sind nicht vorgesehen. Die Apps sind ausschließlich für Training und Ausbildung bestimmt. Sie sind kein Medizinprodukt und nicht für Diagnose, Vorbeugung, Überwachung, Behandlung oder Linderung von Krankheiten bestimmt.
+
+### Nicht für echte Patienten
+
+Die Apps dürfen nicht bei der Versorgung echter Patienten eingesetzt werden, auch nicht bei realer Reanimation, Anästhesie, Atemwegssicherung oder anderen medizinischen Notfällen. Sie ersetzen weder klinisches Urteilsvermögen, medizinische Ausbildung, aktuelle Leitlinien, offizielle Protokolle, medizinische Geräte noch etablierte klinische Zeitmessung oder Dokumentation.
+
+### Dosen und Zeiten
+
+Angezeigte Medikamente, Dosen und Intervalle sind Beispiele für das Training. Sie können veraltet oder unvollständig sein und müssen anhand lokaler Protokolle und Produktinformationen geprüft werden. Es besteht keine Gewähr für Richtigkeit, Vollständigkeit oder Aktualität.
+
+### Verantwortung
+
+Sie nutzen die Apps auf eigene fachliche Verantwortung. Sie sind allein dafür verantwortlich, dass klinische Entscheidungen den geltenden Standards, Protokollen und Leitlinien entsprechen.
+
+### Haftung
+
+Soweit gesetzlich zulässig, schließe ich die Haftung für Schäden aus, die aus der Nutzung der Apps entstehen (auch bei Störungen, Ausfällen, Fehlalarmen, leerem Akku, Verbindungs- oder Gerätefehlern). Zwingende gesetzliche Haftung, insbesondere bei Absicht und grober Fahrlässigkeit, bleibt unberührt. Die Apps werden „wie besehen“ bereitgestellt; es besteht kein Anspruch auf Verfügbarkeit, Support oder bestimmte Funktionen. Einzelne Funktionen („Pro”) können zeitlich begrenzt kostenlos sein und später kostenpflichtig oder eingeschränkt werden.
+
+### Urheberrecht und Nutzung
+
+Die Apps sind urheberrechtlich geschützt (© 2026 Hanno Koller, notfallstruktur.org). Die Smartwatch-Apps sind von der Creative-Commons-Lizenz der Webseite ausgenommen. Sie dürfen über den Connect IQ Store zu persönlichen, nicht kommerziellen Trainingszwecken genutzt werden. Die Weitergabe, das Kopieren, Verändern, Zerlegen (Reverse Engineering) oder die kommerzielle Nutzung ist ohne meine vorherige Erlaubnis nicht gestattet. Der Quellcode ist nicht öffentlich.
+
+### Marken und Leitlinien
+
+Genannte Marken (z. B. Garmin, Connect IQ) gehören ihren Inhabern. Leitlinien (z. B. ERC) werden als Grundlage genannt; die Apps sind weder von diesen Organisationen noch von Garmin geprüft oder unterstützt.
+
+### Anwendbares Recht
+
+Es gilt Schweizer Recht, soweit zwingende Verbraucherschutzvorschriften nichts anderes vorsehen.
+
+Diese Bedingungen gibt es auch als eigene Seite auf Deutsch und Englisch: [notfallstruktur.org/smartwatch-apps](/smartwatch-apps/)
