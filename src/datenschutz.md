@@ -54,7 +54,7 @@ Unabhängig davon können beim Abruf von Seiten und Dateien technische Zugriffsd
 
 Wenn Sie per E-Mail oder über das Kontaktformular Kontakt aufnehmen, werden die von Ihnen übermittelten Angaben, insbesondere Ihre E-Mail-Adresse, ein gegebenenfalls angegebener Name und der Inhalt Ihrer Nachricht, zur Bearbeitung der Anfrage verwendet.
 
-Nachrichten aus dem Kontaktformular werden in einer Datenbank bei Cloudflare (Cloudflare D1) gespeichert, auf die nur der Betreiber Zugriff hat.
+Nachrichten aus dem Kontaktformular werden in einer Datenbank bei Cloudflare (Cloudflare D1) gespeichert, auf die nur der Betreiber Zugriff hat. Zur Benachrichtigung wird der Inhalt der Nachricht zusätzlich über den E-Mail-Dienst Brevo (Sendinblue SAS, Frankreich) an die Kontaktadresse von notfallstruktur.org weitergeleitet.
 
 Die Daten werden so lange aufbewahrt, wie dies für die Bearbeitung der Anfrage und eine gegebenenfalls anfallende Anschlusskommunikation erforderlich ist oder gesetzliche Aufbewahrungspflichten bestehen.
 

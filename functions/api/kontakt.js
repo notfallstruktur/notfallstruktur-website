@@ -13,6 +13,25 @@ async function turnstileOk(token, secret, ip) {
   return !!j.success;
 }
 
+// Benachrichtigung per E-Mail über Brevo (nur wenn BREVO_API_KEY gesetzt ist).
+async function sendeMail(env, name, email, nachricht) {
+  if (!env.BREVO_API_KEY) return;
+  const an = env.MAIL_TO || "kontakt@notfallstruktur.org";
+  const von = env.MAIL_FROM || "kontakt@notfallstruktur.org";
+  const r = await fetch("https://api.brevo.com/v3/smtp/email", {
+    method: "POST",
+    headers: { "api-key": env.BREVO_API_KEY, "content-type": "application/json", accept: "application/json" },
+    body: JSON.stringify({
+      sender: { name: "notfallstruktur.org Kontaktformular", email: von },
+      to: [{ email: an }],
+      replyTo: { email, name: name || email },
+      subject: "Neue Nachricht über das Kontaktformular" + (name ? " von " + name : ""),
+      textContent: "Name: " + (name || "–") + "\nE-Mail: " + email + "\n\n" + nachricht,
+    }),
+  });
+  if (!r.ok) console.log("Brevo-Fehler", r.status, await r.text());
+}
+
 export async function onRequestPost({ request, env }) {
   if (!env.DB) return json({ ok: false, fehler: "Datenbank nicht verbunden" }, 503);
   let d;
@@ -26,5 +45,6 @@ export async function onRequestPost({ request, env }) {
   }
   await env.DB.prepare("INSERT INTO nachrichten (name, email, nachricht) VALUES (?, ?, ?)")
     .bind(name, email.slice(0, 200), nachricht.slice(0, 5000)).run();
+  try { await sendeMail(env, name, email.slice(0, 200), nachricht.slice(0, 5000)); } catch (e) { console.log("Mailversand fehlgeschlagen", e); }
   return json({ ok: true });
 }
