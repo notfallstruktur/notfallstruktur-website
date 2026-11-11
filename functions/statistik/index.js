@@ -54,6 +54,8 @@ td.n{text-align:right;font-variant-numeric:tabular-nums}pre{white-space:pre-wrap
 ${tab(["Tag", "Besucher"], bes.map((r) => `<tr><td>${esc(r.tag)}</td><td class="n">${r.anzahl}</td></tr>`))}
 <h2>Seitenaufrufe nach Land</h2>
 ${tab(["Land", "Gesamt", "Letzte 30 Tage"], laender.map((r) => `<tr><td>${esc(landName(r.land))}</td><td class="n">${r.n}</td><td class="n">${r.n30}</td></tr>`))}
+<h2>Downloads pro Dokument (absolut, alle Versionen)</h2>
+${tab(["Dokument", "Downloads gesamt"], (() => { const m = {}; let sum = 0; for (const r of dl) { const k = String(r.datei).split(" · Version")[0]; m[k] = (m[k] || 0) + r.n; sum += r.n; } return Object.entries(m).sort((x, y) => y[1] - x[1]).map(([k, n]) => `<tr><td>${esc(k)}</td><td class="n">${n}</td></tr>`).concat([`<tr><td><b>Summe</b></td><td class="n"><b>${sum}</b></td></tr>`]); })())}
 <h2>Downloads nach Land</h2>
 ${tab(["Datei", "Land", "Gesamt"], dlLand.map((r) => `<tr><td>${esc(r.datei)}</td><td>${esc(landName(r.land))}</td><td class="n">${r.n}</td></tr>`))}
 <h2>Downloads</h2>
