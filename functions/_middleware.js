@@ -1,5 +1,5 @@
 // Zählt Seitenaufrufe (pro Seite, Tag und Land). Besucher werden getrennt über /api/besuch gezählt. Keine IP-Adressen, keine Cookies.
-import { zaehleSeite, istBot } from "./_zaehler.js";
+import { zaehleSeite, zaehleHerkunft, istBot } from "./_zaehler.js";
 
 const AUSGENOMMEN = /^\/(api|media|img|css|js|fonts|admin|statistik)\b/;
 
@@ -13,6 +13,7 @@ export async function onRequest(context) {
     if (env.DB && istSeite && !AUSGENOMMEN.test(url.pathname) && !istBot(request)) {
       const seite = url.pathname.replace(/index\.html$/, "") || "/";
       context.waitUntil(zaehleSeite(env.DB, request, seite).catch(() => {}));
+      context.waitUntil(zaehleHerkunft(env.DB, request, url).catch(() => {}));
     }
   } catch (e) { /* Zählen darf die Seite nie blockieren */ }
   return res;

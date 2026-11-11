@@ -31,6 +31,7 @@ async function tabellen(db) {
     db.prepare("CREATE TABLE IF NOT EXISTS downloads_land (datei TEXT NOT NULL, tag TEXT NOT NULL, land TEXT NOT NULL, anzahl INTEGER NOT NULL DEFAULT 0, PRIMARY KEY (datei, tag, land))"),
     db.prepare("CREATE TABLE IF NOT EXISTS besucher_tag (tag TEXT PRIMARY KEY, anzahl INTEGER NOT NULL DEFAULT 0)"),
     db.prepare("CREATE TABLE IF NOT EXISTS besucher_kennung (tag TEXT NOT NULL, kennung TEXT NOT NULL, PRIMARY KEY (tag, kennung))"),
+    db.prepare("CREATE TABLE IF NOT EXISTS herkunft (quelle TEXT NOT NULL, tag TEXT NOT NULL, anzahl INTEGER NOT NULL DEFAULT 0, PRIMARY KEY (quelle, tag))"),
     db.prepare("CREATE TABLE IF NOT EXISTS tagessalz (tag TEXT PRIMARY KEY, wert TEXT NOT NULL)")
   ]);
   tabellenOk = true;
@@ -90,3 +91,24 @@ export async function zaehleDownload(db, request, datei) {
 }
 
 export { tabellen };
+
+// Einstiege: woher kommt der Aufruf? Nur Domain (ohne Pfad und Suchbegriffe) oder ?quelle=Name. Keine Personendaten.
+const EIGENE = /(^|\.)(notfallstruktur\.(org|de)|pages\.dev)$/;
+export async function zaehleHerkunft(db, request, url) {
+  let quelle = "";
+  const q = (url.searchParams.get("quelle") || "").toLowerCase();
+  if (/^[a-z0-9_-]{1,30}$/.test(q)) quelle = "Link: " + q;
+  else {
+    const ref = request.headers.get("referer") || "";
+    if (!ref) quelle = "direkt / unbekannt";
+    else {
+      let host = "";
+      try { host = new URL(ref).hostname.toLowerCase().replace(/^www\./, "").slice(0, 80); } catch { return; }
+      if (!host || EIGENE.test(host)) return; // interne Navigation zählt nicht
+      quelle = host;
+    }
+  }
+  const tag = heute();
+  await tabellen(db);
+  await db.prepare("INSERT INTO herkunft (quelle, tag, anzahl) VALUES (?, ?, 1) ON CONFLICT(quelle, tag) DO UPDATE SET anzahl = anzahl + 1").bind(quelle, tag).run();
+}

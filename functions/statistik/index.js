@@ -27,6 +27,7 @@ export async function onRequestGet({ request, env }) {
     q("SELECT datei, land, SUM(anzahl) n FROM downloads_land GROUP BY datei, land ORDER BY datei, n DESC")
   ]);
   const besSumme30 = bes.filter((r) => r.tag >= new Date(Date.now() - 30*864e5).toISOString().slice(0,10)).reduce((a, r) => a + r.anzahl, 0);
+  const hk = await q("SELECT quelle, SUM(anzahl) n, SUM(CASE WHEN tag >= date('now','-30 day') THEN anzahl ELSE 0 END) n30 FROM herkunft GROUP BY quelle ORDER BY n DESC LIMIT 50").catch(() => []);
   const [dl, dl30, seiten, seiten30, fb, msg] = await Promise.all([
     q("SELECT datei, SUM(anzahl) n FROM downloads GROUP BY datei ORDER BY n DESC"),
     q("SELECT datei, SUM(anzahl) n FROM downloads WHERE tag >= date('now','-30 day') GROUP BY datei"),
@@ -60,6 +61,9 @@ ${tab(["Dokument", "Downloads gesamt"], (() => { const m = {}; let sum = 0; for 
 ${tab(["Datei", "Land", "Gesamt"], dlLand.map((r) => `<tr><td>${esc(r.datei)}</td><td>${esc(landName(r.land))}</td><td class="n">${r.n}</td></tr>`))}
 <h2>Downloads</h2>
 ${tab(["Datei", "Gesamt", "Letzte 30 Tage"], dl.map((r) => `<tr><td>${esc(r.datei)}</td><td class="n">${r.n}</td><td class="n">${d30[r.datei] || 0}</td></tr>`))}
+<h2>Woher kommen Besucher (Einstiege)</h2>
+<p>Nur Herkunfts-Domain oder Link-Kennung (?quelle=…). Viele Messenger, E-Mail-Programme und Apps geben keine Herkunft weiter und erscheinen als „direkt / unbekannt“. Gezählt seit 11.11.2026.</p>
+${tab(["Herkunft", "Gesamt", "Letzte 30 Tage"], hk.map((r) => `<tr><td>${esc(r.quelle)}</td><td class="n">${r.n}</td><td class="n">${r.n30}</td></tr>`))}
 <h2>Seitenaufrufe</h2>
 ${tab(["Seite", "Gesamt", "Letzte 30 Tage"], seitenListe.map((r) => `<tr><td>${esc(SEITEN[r.seite])}</td><td class="n">${r.n}</td><td class="n">${s30[r.seite] || 0}</td></tr>`))}
 <h2>Feedback (${fb.length})</h2>
