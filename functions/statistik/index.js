@@ -50,7 +50,7 @@ td.n{text-align:right;font-variant-numeric:tabular-nums}pre{white-space:pre-wrap
 <h1>Statistik notfallstruktur.org</h1>
 <p>Angemeldet als ${esc(nutzer)}. <a href="/statistik/feedback.csv">Feedback als CSV herunterladen</a></p>
 <h2>Verschiedene Besucher pro Tag</h2>
-<p>Summe letzte 30 Tage: <b>${besSumme30}</b> (wer an mehreren Tagen kommt, zählt mehrfach; gezählt seit Einführung am 24.10.2026)</p>
+<p>Summe letzte 30 Tage: <b>${besSumme30}</b> (wer an mehreren Tagen kommt, zählt mehrfach; gezählt seit 24.10.2026; ab 11.11.2026 nur noch Besucher, die die Seite bedient haben, ohne Bots und Rechenzentren – frühere Werte sind höher)</p>
 ${tab(["Tag", "Besucher"], bes.map((r) => `<tr><td>${esc(r.tag)}</td><td class="n">${r.anzahl}</td></tr>`))}
 <h2>Seitenaufrufe nach Land</h2>
 ${tab(["Land", "Gesamt", "Letzte 30 Tage"], laender.map((r) => `<tr><td>${esc(landName(r.land))}</td><td class="n">${r.n}</td><td class="n">${r.n30}</td></tr>`))}

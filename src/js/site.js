@@ -154,3 +154,10 @@
 function set(l){document.querySelectorAll('.langblk').forEach(function(b){b.hidden=b.lang!==l});sw.querySelectorAll('button').forEach(function(x){x.setAttribute('aria-pressed',x.dataset.lang===l)});document.documentElement.lang=l}
 sw.addEventListener('click',function(e){var l=e.target.dataset&&e.target.dataset.lang;if(l){set(l);history.replaceState(null,'','#'+l)}});
 set(location.hash==='#en'?'en':'de')})();
+
+(function(){ // Besucherzählung nur nach echter Bedienung der Seite; ohne Cookies
+var gesendet=false, ev=['scroll','pointerdown','keydown','touchstart','mousemove'];
+function los(){ if(gesendet) return; gesendet=true; ev.forEach(function(e){removeEventListener(e,los,true)});
+ try{ navigator.sendBeacon('/api/besuch','') }catch(x){} }
+ev.forEach(function(e){addEventListener(e,los,{capture:true,passive:true})});
+})();

@@ -1,7 +1,27 @@
 // Gemeinsame Zählfunktionen. Keine IP-Adressen, keine Cookies, keine Profile.
 import { heute } from "./_lib.js";
 
-export const BOT = /bot|crawl|spider|slurp|preview|monitor|curl|wget|python|headless/i;
+export const BOT = /bot|crawl|spider|slurp|preview|monitor|curl|wget|python|headless|scrap|fetch|http[-_ ]?client|httpclient|axios|node|java\/|go-http|libwww|okhttp|lighthouse|pingdom|uptime|facebookexternalhit|whatsapp|telegram|discord|slack|embedly|validator|scan|archive|feed|reader|search|ahrefs|semrush|mj12|bytespider|gpt|claude|perplexity|yandex|baidu|phantom|selenium|puppeteer|playwright|electron/i;
+
+// Rechenzentren und Cloud-Anbieter: von dort kommen praktisch keine Menschen.
+const RECHENZENTRUM = /amazon|aws|google llc|google cloud|microsoft|azure|digitalocean|hetzner|ovh|linode|vultr|oracle|alibaba|tencent|leaseweb|contabo|scaleway|choopa|m247|datacamp|ionos|netcup|upcloud|rackspace|ibm cloud|hostinger|godaddy|psychz|colocrossing|quadranet/i;
+
+// Heuristik ohne Cookies: echte Browser senden Sprache und (meist) Sec-Fetch-Header.
+export function istBot(request) {
+  const h = request.headers;
+  const ua = h.get("user-agent") || "";
+  if (!ua || ua.length < 20 || BOT.test(ua)) return true;
+  if (!h.get("accept-language")) return true;
+  const modus = h.get("sec-fetch-mode");
+  if (modus && modus !== "navigate" && modus !== "cors" && modus !== "no-cors") return true;
+  const ziel = h.get("sec-fetch-dest");
+  if (ziel && ziel !== "document" && ziel !== "empty") return true;
+  const zweck = (h.get("sec-purpose") || h.get("purpose") || "").toLowerCase();
+  if (zweck.includes("prefetch") || zweck.includes("prerender")) return true;
+  const asn = (request.cf && request.cf.asOrganization) || "";
+  if (asn && RECHENZENTRUM.test(asn)) return true;
+  return false;
+}
 
 let tabellenOk = false;
 async function tabellen(db) {
@@ -32,6 +52,12 @@ async function salz(db, tag) {
   return r.wert;
 }
 
+export async function zaehleBesucher(db, request) {
+  const tag = heute();
+  await tabellen(db);
+  await besucher(db, request, tag);
+}
+
 async function besucher(db, request, tag) {
   const ip = request.headers.get("cf-connecting-ip") || "";
   const ua = request.headers.get("user-agent") || "";
@@ -52,7 +78,6 @@ export async function zaehleSeite(db, request, seite) {
     db.prepare("INSERT INTO seitenaufrufe (seite, tag, anzahl) VALUES (?, ?, 1) ON CONFLICT(seite, tag) DO UPDATE SET anzahl = anzahl + 1").bind(seite, tag),
     db.prepare("INSERT INTO seiten_land (seite, tag, land, anzahl) VALUES (?, ?, ?, 1) ON CONFLICT(seite, tag, land) DO UPDATE SET anzahl = anzahl + 1").bind(seite, tag, land(request))
   ]);
-  await besucher(db, request, tag);
 }
 
 export async function zaehleDownload(db, request, datei) {
