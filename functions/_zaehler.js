@@ -75,10 +75,7 @@ async function besucher(db, request, tag) {
 export async function zaehleSeite(db, request, seite) {
   const tag = heute();
   await tabellen(db);
-  await db.batch([
-    db.prepare("INSERT INTO seitenaufrufe (seite, tag, anzahl) VALUES (?, ?, 1) ON CONFLICT(seite, tag) DO UPDATE SET anzahl = anzahl + 1").bind(seite, tag),
-    db.prepare("INSERT INTO seiten_land (seite, tag, land, anzahl) VALUES (?, ?, ?, 1) ON CONFLICT(seite, tag, land) DO UPDATE SET anzahl = anzahl + 1").bind(seite, tag, land(request))
-  ]);
+  await db.prepare("INSERT INTO seitenaufrufe (seite, tag, anzahl) VALUES (?, ?, 1) ON CONFLICT(seite, tag) DO UPDATE SET anzahl = anzahl + 1").bind(seite, tag).run();
 }
 
 export async function zaehleDownload(db, request, datei) {
