@@ -33,8 +33,8 @@ export async function onRequestGet({ request, env }) {
   const [dl, dl30, seiten, seiten30, fb, msg] = await Promise.all([
     q("SELECT datei, SUM(anzahl) n FROM downloads GROUP BY datei ORDER BY n DESC"),
     q("SELECT datei, SUM(anzahl) n FROM downloads WHERE tag >= date('now','-30 day') GROUP BY datei"),
-    q("SELECT seite, SUM(anzahl) n FROM seitenaufrufe GROUP BY seite ORDER BY n DESC"),
-    q("SELECT seite, SUM(anzahl) n FROM seitenaufrufe WHERE tag >= date('now','-30 day') GROUP BY seite"),
+    q("SELECT seite, SUM(anzahl) n FROM seitenaufrufe WHERE tag >= '" + BESUCHER_AB + "' GROUP BY seite ORDER BY n DESC"),
+    q("SELECT seite, SUM(anzahl) n FROM seitenaufrufe WHERE tag >= '" + BESUCHER_AB + "' AND tag >= date('now','-30 day') GROUP BY seite"),
     q("SELECT id, formular, antworten, erstellt FROM feedback ORDER BY id DESC LIMIT 200"),
     q("SELECT id, name, email, nachricht, erstellt FROM nachrichten ORDER BY id DESC LIMIT 100")
   ]);
@@ -65,15 +65,16 @@ ${tab(["Tag", "Besucher"], bes.map((r) => `<tr><td>${esc(r.tag)}</td><td class="
 <h2>2. Woher kommen Besucher (Einstiege)</h2>
 <p>Nur Herkunfts-Domain oder Link-Kennung (?quelle=…). Viele Messenger, E-Mail-Programme und Apps geben keine Herkunft weiter und erscheinen als „direkt / unbekannt“. Gezählt seit 11.11.2026.</p>
 ${tab(["Herkunft", "Gesamt", "Letzte 30 Tage"], hk.map((r) => `<tr><td>${esc(r.quelle)}</td><td class="n">${r.n}</td><td class="n">${r.n30}</td></tr>`))}
-<h2>3. Seitenaufrufe</h2>
-${tab(["Seite", "Gesamt", "Letzte 30 Tage"], seitenListe.map((r) => `<tr><td>${esc(SEITEN[r.seite])}</td><td class="n">${r.n}</td><td class="n">${s30[r.seite] || 0}</td></tr>`))}
-<h2>4. Downloads</h2>
+<h2>3. Downloads</h2>
 <h3>Übersicht pro Dokument (alle Versionen)</h3>
 ${tab(["Dokument", "Gesamt", "Letzte 30 Tage"], dokZeilen.map((r) => `<tr><td>${esc(r.k)}</td><td class="n">${r.n}</td><td class="n">${r.n30}</td></tr>`).concat([`<tr><td><b>Summe</b></td><td class="n"><b>${dokSumme}</b></td><td class="n"><b>${dokSumme30}</b></td></tr>`]))}
 <h3>Nach Land</h3>
 ${tab(["Dokument", "Länder (Anzahl Downloads)"], landZeilen.map((r) => `<tr><td>${esc(r.k)}</td><td>${r.laender.map((l) => esc(landName(l[0])) + ": <b>" + l[1] + "</b>").join(" · ")}</td></tr>`))}
 <h3>Nach Version</h3>
 ${tab(["Datei", "Gesamt", "Letzte 30 Tage"], dl.map((r) => `<tr><td>${esc(r.datei)}</td><td class="n">${r.n}</td><td class="n">${d30[r.datei] || 0}</td></tr>`))}
+<h2>4. Seitenaufrufe</h2>
+<p>Gezählt seit ${BESUCHER_AB.split("-").reverse().join(".")}, ohne Bots und Rechenzentren.</p>
+${tab(["Seite", "Gesamt", "Letzte 30 Tage"], seitenListe.map((r) => `<tr><td>${esc(SEITEN[r.seite])}</td><td class="n">${r.n}</td><td class="n">${s30[r.seite] || 0}</td></tr>`))}
 <h2>Feedback (${fb.length})</h2>
 ${tab(["Datum", "Formular", "Antworten"], fb.map((r) => `<tr><td>${esc(r.erstellt)}</td><td>${esc(r.formular)}</td><td><pre>${esc(JSON.stringify(JSON.parse(r.antworten), null, 1))}</pre></td></tr>`))}
 <h2>Nachrichten aus dem Kontaktformular</h2>
