@@ -477,3 +477,34 @@ li.abbr p.abbrlink a{display:inline-flex;align-items:center;gap:5px;font-size:12
 .kf-bi.alarm .kf-ph{color:var(--redtext);font-weight:400}
 .kf-bi.alarm .kf-ico{background:#fff}
 @media (max-width:700px){.kf-back-g{grid-template-columns:minmax(0,1fr)}.kf-back{padding:8px}}
+/* Schema: Farben wie auf den pRSI-Karten */
+.kflow{--k-yel:#FDF0C3;--k-yel-b:#D9B95A;--k-grn:#DDEFD9;--k-grn-b:#6E9B65;--k-blu:#E6EFF8;--k-blu-b:#7C95B5;--k-red:#F6CFD0;--k-red-b:#A20D09}
+.kf-prep{border-color:var(--k-yel-b);background:#FEFBEA}
+.kf-prep .kf-prep-t{color:#8A6D12}
+.kf-prep .kf-step{background:var(--k-yel);justify-content:center;text-align:center}
+.kf-final{background:var(--k-grn);border-color:var(--k-grn-b)}
+.kf-final .kf-ph{color:#3F6B38}
+.kf-final .kf-ico{background:#fff;color:#3F6B38}
+.kf-back{border-color:var(--k-blu-b);background:#F7FAFD}
+.kf-back .kf-prep-t{color:#3E5B80}
+.kf-bi{background:var(--k-blu)}
+.kf-bi .kf-ico{background:#fff;color:#3E5B80}
+.kf-bi.alarm{background:var(--k-red);border:1.5px solid var(--k-red-b)}
+.kf-bi.alarm .kf-ph{color:var(--k-red-b);font-weight:600}
+.kf-bi.alarm .kf-ico{color:var(--k-red-b)}
+.kf-sides li.k-yel,.kf-sides li.k-grn,.kf-sides li.k-blu,.kf-sides li.k-red{list-style:none;margin:4px 0 4px -18px;padding:3px 8px;border-radius:6px}
+.kf-sides li.k-yel{background:var(--k-yel)}.kf-sides li.k-grn{background:var(--k-grn)}.kf-sides li.k-blu{background:var(--k-blu)}.kf-sides li.k-red{background:var(--k-red)}
+/* Karten vs. Maßnahmen */
+.kflow{--k-card:#4A4A4A}
+.kf-card,.kf-card.k1,.kf-final,.kf-back{border:2px solid var(--k-card);border-radius:10px;box-shadow:4px 4px 0 #D6D6D6}
+.kf-card.k1{border-color:var(--k-card)}
+.kf-step,.kf-prep .kf-step{border-radius:999px;padding-left:20px;padding-right:20px}
+.kf-step.on{border-radius:999px}
+.kf-prep{border-radius:22px}
+.kf-legend{display:flex;flex-wrap:wrap;gap:8px 18px;align-items:center;font-size:13px;color:var(--muted);margin:-4px 0 14px}
+.kf-legend span{display:inline-flex;align-items:center;gap:7px}
+.kf-legend i{display:inline-block;width:26px;height:16px}
+.kf-legend .lk{border:2px solid var(--k-card);border-radius:4px;box-shadow:2px 2px 0 #D6D6D6;background:#fff}
+.kf-legend .lm{border-radius:999px;background:var(--slate)}
+@media (max-width:520px){.kf-step,.kf-prep .kf-step{border-radius:18px;padding-left:12px;padding-right:12px}}
+@media (max-width:520px){.kf-step.on{border-radius:18px}.kf-lanes .kf-ph{font-size:10.5px;letter-spacing:.03em}}
