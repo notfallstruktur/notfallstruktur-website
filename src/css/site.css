@@ -444,7 +444,9 @@ li.abbr p.abbrlink a{display:inline-flex;align-items:center;gap:5px;font-size:12
 .kf-sides li{margin:2px 0}
 .kf-split{display:flex;align-items:center;justify-content:center;gap:10px;margin:14px 0;font-size:14px;color:var(--ink2);text-align:left;position:relative}
 .kf-split .kf-ico{background:var(--slate);color:#fff}
-.kf-lanes{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:16px}.kf-lane>.kf-card{min-height:92px;display:flex;align-items:center}
+.kf-lanes{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);column-gap:16px;row-gap:0}.kf-lanes>.kf-card{display:flex;align-items:center}
+.kf-final{grid-column:1/-1;display:flex;gap:10px;align-items:center;justify-content:center;background:#fff;border:1.5px solid var(--red);border-radius:12px;padding:10px 14px;color:var(--ink)}
+.kf-final .kf-ph{color:var(--redtext)}.kf-final p+p,.kf-final div>p:last-child{font-weight:600}
 .kf-lane{display:flex;flex-direction:column;align-items:stretch}
 .kf-arrow{width:22px;height:22px;margin:6px auto;color:var(--slate)}
 .kf-step{display:flex;gap:10px;align-items:center;background:var(--sand);border-radius:12px;padding:10px 14px;min-height:58px}
@@ -454,4 +456,4 @@ li.abbr p.abbrlink a{display:inline-flex;align-items:center;gap:5px;font-size:12
 .kf-ph{font-size:12px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted)}
 .kflow figcaption{margin-top:14px;font-size:15px;color:var(--ink2)}
 @media (max-width:640px){.kf-sides{grid-template-columns:1fr}.kf-lanes{gap:10px}.kflow{font-size:15px}.kf-card{padding:12px}.kf-ico{width:38px;height:38px;padding:7px}.kf-t{font-size:15.5px}.kf-step{padding:9px 10px}}
-@media (max-width:520px){.kf-lanes{grid-template-columns:minmax(0,1fr);gap:22px}.kf-lane>.kf-card{min-height:0}}
+@media (max-width:520px){.kf-lanes{column-gap:8px}.kf-lanes .kf-head{flex-direction:column;align-items:flex-start;gap:6px}.kf-lanes .kf-step .kf-ico{display:none}.kf-lanes .kf-t{font-size:14.5px;hyphens:auto;-webkit-hyphens:auto}.kf-lanes .kf-sub{font-size:12.5px}.kf-step{font-size:14px;min-height:0}.kf-lanes>.kf-card{align-items:flex-start}}
