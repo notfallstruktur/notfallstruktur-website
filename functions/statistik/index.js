@@ -3,7 +3,7 @@ import { tabellen } from "../_zaehler.js";
 // Statistik-Seite, nur für den Betreiber.
 // Schutz: Cloudflare Access auf /statistik einrichten (siehe ANLEITUNG.md).
 const landName = (c) => { try { return c && c !== "??" ? new Intl.DisplayNames(["de"], { type: "region" }).of(c) + " (" + c + ")" : "unbekannt"; } catch (e) { return c; } };
-const SEITEN = {"/":"Start","/rote-faeden/":"Rote Fäden","/anwendungshilfe/":"xABCDE-Anwendungshilfe","/rsi-checklisten/":"RSI-Checklisten","/wissen/":"Wissen & Ressourcen","/foam/":"FOAM & Fortbildung","/leitlinien/":"Leitlinien & Algorithmen","/apps/":"Apps, Rechner & Nachschlagewerke","/paediatrie/":"Pädiatrische Notfallhilfen","/pocus/":"POCUS","/lebensretter/":"First Responder","/kontakt/":"Über & Kontakt","/nutzung/":"Nutzung & Haftung","/datenschutz/":"Datenschutzerklärung","/feedback/":"Feedback","/selbst-in-not/":"Selbst in Not?"};
+const SEITEN = {"/":"Start","/rote-faeden/":"Rote Fäden","/anwendungshilfe/":"xABCDE-Anwendungshilfe","/rsi-checklisten/":"pRSI-Checklisten","/wissen/":"Wissen & Ressourcen","/foam/":"FOAM & Fortbildung","/leitlinien/":"Leitlinien & Algorithmen","/apps/":"Apps, Rechner & Nachschlagewerke","/paediatrie/":"Pädiatrische Notfallhilfen","/pocus/":"POCUS","/lebensretter/":"First Responder","/kontakt/":"Über & Kontakt","/nutzung/":"Nutzung & Haftung","/datenschutz/":"Datenschutzerklärung","/feedback/":"Feedback","/selbst-in-not/":"Selbst in Not?"};
 const norm = (p) => { p = String(p || "/"); if (!p.endsWith("/")) p += "/"; return p; };
 function nurHauptseiten(rows) {
   const m = {};
