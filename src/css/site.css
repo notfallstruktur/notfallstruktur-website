@@ -469,3 +469,11 @@ li.abbr p.abbrlink a{display:inline-flex;align-items:center;gap:5px;font-size:12
 .kf-alarm .kf-ph{color:var(--redtext)}.kf-alarm p:last-child{font-weight:600}
 .kf-alarm .kf-ico{background:#fff}
 @media (max-width:520px){.kf-step.full .kf-ico{display:inline-block!important}}
+.kf-back{grid-column:1/-1;border:1.5px solid var(--red);border-radius:16px;padding:10px 12px 12px}
+.kf-back .kf-prep-t{color:var(--redtext)}
+.kf-back-g{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.kf-bi{display:flex;gap:10px;align-items:center;background:var(--sand);border-radius:12px;padding:10px 12px;font-weight:600}
+.kf-bi.alarm{background:var(--tint);border:1.5px dashed var(--red)}
+.kf-bi.alarm .kf-ph{color:var(--redtext);font-weight:400}
+.kf-bi.alarm .kf-ico{background:#fff}
+@media (max-width:700px){.kf-back-g{grid-template-columns:minmax(0,1fr)}.kf-back{padding:8px}}
