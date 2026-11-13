@@ -424,7 +424,7 @@ li.abbr p.abbrlink a{display:inline-flex;align-items:center;gap:5px;font-size:12
 .prose a{overflow-wrap:anywhere}
 
 /* Schema Karten-Konzept */
-.kflow{margin:22px 0 0;max-width:760px;font-size:16px;line-height:1.4}
+.kflow{margin:22px 0 0;max-width:none;font-size:17px;line-height:1.4}
 .kflow p{margin:0}
 .kflow svg{width:100%;height:100%;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
 .kf-top{display:inline-flex;align-items:center;gap:10px;background:var(--sand);border-radius:999px;padding:7px 16px 7px 12px;font-size:14px;color:var(--ink2);margin-bottom:14px}
@@ -452,7 +452,7 @@ li.abbr p.abbrlink a{display:inline-flex;align-items:center;gap:5px;font-size:12
 .kf-step{display:flex;gap:10px;align-items:center;background:var(--sand);border-radius:12px;padding:10px 14px;min-height:58px}
 .kf-step.on{background:var(--slate);color:#fff}
 .kf-step.on .kf-ph{color:#dfe7e9}
-.kf-step.on .kf-ico{background:rgba(255,255,255,.15);color:#fff}
+.kf-step.on .kf-ico{background:var(--tint);color:var(--red)}
 .kf-ph{font-size:12px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted)}
 .kflow figcaption{margin-top:14px;font-size:15px;color:var(--ink2)}
 @media (max-width:640px){.kf-sides{grid-template-columns:1fr}.kf-lanes{gap:10px}.kflow{font-size:15px}.kf-card{padding:12px}.kf-ico{width:38px;height:38px;padding:7px}.kf-t{font-size:15.5px}.kf-step{padding:9px 10px}}
