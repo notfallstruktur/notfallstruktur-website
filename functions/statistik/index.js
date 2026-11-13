@@ -3,8 +3,8 @@ import { tabellen } from "../_zaehler.js";
 // Statistik-Seite, nur für den Betreiber.
 // Schutz: Cloudflare Access auf /statistik einrichten (siehe ANLEITUNG.md).
 const landName = (c) => { try { return c && c !== "??" ? new Intl.DisplayNames(["de"], { type: "region" }).of(c) + " (" + c + ")" : "unbekannt"; } catch (e) { return c; } };
-const SEITEN = {"/":"Start","/rote-faeden/":"Rote Fäden","/anwendungshilfe/":"xABCDE-Anwendungshilfe","/rsi-checklisten/":"pRSI-Checklisten","/wissen/":"Wissen & Ressourcen","/foam/":"FOAM & Fortbildung","/leitlinien/":"Leitlinien & Algorithmen","/apps/":"Apps, Rechner & Nachschlagewerke","/paediatrie/":"Pädiatrische Notfallhilfen","/pocus/":"POCUS","/lebensretter/":"First Responder","/kontakt/":"Über & Kontakt","/nutzung/":"Nutzung & Haftung","/datenschutz/":"Datenschutzerklärung","/feedback/":"Feedback","/selbst-in-not/":"Selbst in Not?"};
-const norm = (p) => { p = String(p || "/"); if (!p.endsWith("/")) p += "/"; return p; };
+const SEITEN = {"/":"Start","/rote-faeden/":"Rote Fäden","/anwendungshilfe/":"xABCDE-Anwendungshilfe","/prsi-checkliste/":"pRSI-Checklisten","/wissen/":"Wissen & Ressourcen","/foam/":"FOAM & Fortbildung","/leitlinien/":"Leitlinien & Algorithmen","/apps/":"Apps, Rechner & Nachschlagewerke","/paediatrie/":"Pädiatrische Notfallhilfen","/pocus/":"POCUS","/lebensretter/":"First Responder","/kontakt/":"Über & Kontakt","/nutzung/":"Nutzung & Haftung","/datenschutz/":"Datenschutzerklärung","/feedback/":"Feedback","/selbst-in-not/":"Selbst in Not?"};
+const norm = (p) => { p = String(p || "/"); if (!p.endsWith("/")) p += "/"; return ["/rsi-checklisten/", "/prsi-checklisten/", "/rsi-checkliste/"].includes(p) ? "/prsi-checkliste/" : p; };
 function nurHauptseiten(rows) {
   const m = {};
   for (const r of rows) { const k = norm(r.seite); if (SEITEN[k]) m[k] = (m[k] || 0) + r.n; }
@@ -12,6 +12,9 @@ function nurHauptseiten(rows) {
 }
 // Besucherzählung ohne Bots beginnt hier; frühere Werte werden nicht mehr angezeigt.
 const BESUCHER_AB = "2026-11-12";
+// Alte Dateinamen (rsi_…) zählen zu den neuen (prsi_…).
+const normDatei = (d) => String(d).replace(/^rsi_checklisten/i, "prsi_checklisten");
+const summiere = (rows, keys) => { const m = {}; for (const r of rows) { const nr = { ...r, datei: normDatei(r.datei) }; const k = keys.map((x) => nr[x]).join("\u0001"); if (m[k]) m[k].n += r.n; else m[k] = nr; } return Object.values(m); };
 const dokName = (d) => String(d).split(" · Version")[0];
 const esc = (s) => String(s ?? "").replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
 
@@ -24,13 +27,13 @@ export async function onRequestGet({ request, env }) {
 
   await tabellen(env.DB);
   const q = (sql) => env.DB.prepare(sql).all().then((r) => r.results);
-  const [bes, dlLand] = await Promise.all([
+  let [bes, dlLand] = await Promise.all([
     q("SELECT tag, anzahl FROM besucher_tag WHERE tag >= '" + BESUCHER_AB + "' ORDER BY tag DESC LIMIT 60"),
     q("SELECT datei, land, SUM(anzahl) n FROM downloads_land GROUP BY datei, land ORDER BY datei, n DESC")
   ]);
   const besSumme30 = bes.filter((r) => r.tag >= new Date(Date.now() - 30*864e5).toISOString().slice(0,10)).reduce((a, r) => a + r.anzahl, 0);
   const hk = await q("SELECT quelle, SUM(anzahl) n, SUM(CASE WHEN tag >= date('now','-30 day') THEN anzahl ELSE 0 END) n30 FROM herkunft GROUP BY quelle ORDER BY n DESC LIMIT 50").catch(() => []);
-  const [dl, dl30, seiten, seiten30, fb, msg] = await Promise.all([
+  let [dl, dl30, seiten, seiten30, fb, msg] = await Promise.all([
     q("SELECT datei, SUM(anzahl) n FROM downloads GROUP BY datei ORDER BY n DESC"),
     q("SELECT datei, SUM(anzahl) n FROM downloads WHERE tag >= date('now','-30 day') GROUP BY datei"),
     q("SELECT seite, SUM(anzahl) n FROM seitenaufrufe WHERE tag >= '" + BESUCHER_AB + "' GROUP BY seite ORDER BY n DESC"),
@@ -38,6 +41,7 @@ export async function onRequestGet({ request, env }) {
     q("SELECT id, formular, antworten, erstellt FROM feedback ORDER BY id DESC LIMIT 200"),
     q("SELECT id, name, email, nachricht, erstellt FROM nachrichten ORDER BY id DESC LIMIT 100")
   ]);
+  dl = summiere(dl, ["datei"]).sort((a, b) => b.n - a.n); dl30 = summiere(dl30, ["datei"]); dlLand = summiere(dlLand, ["datei", "land"]).sort((a, b) => b.n - a.n);
   const m30 = (rows, key) => Object.fromEntries(rows.map((r) => [r[key], r.n]));
   const d30 = m30(dl30, "datei");
   const sGes = nurHauptseiten(seiten), s30 = nurHauptseiten(seiten30);

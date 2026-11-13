@@ -422,3 +422,36 @@ li.abbr p.abbrlink a{display:inline-flex;align-items:center;gap:5px;font-size:12
 .langsw{display:flex;gap:8px;margin-top:14px}.langsw button{font:inherit;font-size:.9em;padding:6px 14px;border-radius:999px;border:1px solid currentColor;background:transparent;color:inherit;cursor:pointer;opacity:.6}.langsw button[aria-pressed="true"]{opacity:1;font-weight:700}
 .prose h3,.langblk h3{font-size:21px;line-height:1.25;margin:30px 0 0}.langblk p{margin-top:12px}.langblk ul{margin-top:12px;padding-left:20px}.langblk li{margin-top:6px}
 .prose a{overflow-wrap:anywhere}
+
+/* Schema Karten-Konzept */
+.kflow{margin:22px 0 0;max-width:760px;font-size:16px;line-height:1.4}
+.kflow p{margin:0}
+.kflow svg{width:100%;height:100%;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.kf-top{display:inline-flex;align-items:center;gap:10px;background:var(--sand);border-radius:999px;padding:7px 16px 7px 12px;font-size:14px;color:var(--ink2);margin-bottom:14px}
+.kf-top svg{width:22px;height:22px;color:var(--red)}
+.kf-card{background:#fff;border:1.5px solid var(--rule);border-radius:14px;padding:14px 16px}
+.kf-card.k1{border-color:var(--red);box-shadow:0 2px 0 var(--tint)}
+.kf-head{display:flex;gap:12px;align-items:center}
+.kf-ico{flex:0 0 auto;width:44px;height:44px;border-radius:12px;background:var(--tint);color:var(--red);padding:9px;display:inline-block}
+.kf-ico.sm{width:34px;height:34px;padding:6px;border-radius:10px}
+.kf-nr{font-size:13px;letter-spacing:.04em;text-transform:uppercase;color:var(--muted)}
+.kf-t{font-weight:600;font-size:17px}
+.kf-sub{font-size:14px;color:var(--ink2)}
+.kf-sides{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:12px}
+.kf-sides>div{background:var(--sand);border-radius:10px;padding:10px 12px}
+.kf-side{font-size:13px;font-weight:600;color:var(--redtext);text-transform:uppercase;letter-spacing:.04em;margin-bottom:4px!important}
+.kf-sides ul{margin:0;padding-left:18px}
+.kf-sides li{margin:2px 0}
+.kf-split{display:flex;align-items:center;justify-content:center;gap:10px;margin:14px 0;font-size:14px;color:var(--ink2);text-align:left;position:relative}
+.kf-split .kf-ico{background:var(--slate);color:#fff}
+.kf-lanes{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:16px}.kf-lane>.kf-card{min-height:92px;display:flex;align-items:center}
+.kf-lane{display:flex;flex-direction:column;align-items:stretch}
+.kf-arrow{width:22px;height:22px;margin:6px auto;color:var(--slate)}
+.kf-step{display:flex;gap:10px;align-items:center;background:var(--sand);border-radius:12px;padding:10px 14px;min-height:58px}
+.kf-step.on{background:var(--slate);color:#fff}
+.kf-step.on .kf-ph{color:#dfe7e9}
+.kf-step.on .kf-ico{background:rgba(255,255,255,.15);color:#fff}
+.kf-ph{font-size:12px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted)}
+.kflow figcaption{margin-top:14px;font-size:15px;color:var(--ink2)}
+@media (max-width:640px){.kf-sides{grid-template-columns:1fr}.kf-lanes{gap:10px}.kflow{font-size:15px}.kf-card{padding:12px}.kf-ico{width:38px;height:38px;padding:7px}.kf-t{font-size:15.5px}.kf-step{padding:9px 10px}}
+@media (max-width:520px){.kf-lanes{grid-template-columns:minmax(0,1fr);gap:22px}.kf-lane>.kf-card{min-height:0}}
