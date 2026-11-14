@@ -14,7 +14,7 @@ Bei notfallstruktur.org handelt es sich um ein privat betriebenes Projekt zur Au
 
 Die angebotenen Inhalte richten sich an (angehendes) Rettungsfachpersonal, Auszubildende und in Gesundheitsberufen sowie Studierende und Ärzt:innen mit Interesse an der (prä-)klinischen Notfallmedizin.
 
-Mit Ausnahme ausdrücklich zitierter Quellen geben die dargestellten Empfehlungen und Aussagen die persönliche fachliche Auffassung des Autors wieder und stehen in keinem Zusammenhang mit dessen Arbeitgeberinnen oder Arbeitgebern.
+Mit Ausnahme ausdrücklich zitierter Quellen geben die dargestellten Empfehlungen und Aussagen die persönliche fachliche Auffassung des Autors wieder und stehen in keinem Zusammenhang mit dessen Arbeitgeber:innen.
 
 Es bestehen keine geschäftlichen Beziehungen zu den Anbietern verlinkter Produkte oder Angebote. Hinweise auf solche Produkte oder Angebote stellen keine bezahlte Werbung dar, sofern nicht ausdrücklich anders gekennzeichnet. Die Produktions- und Betriebskosten des Projekts, einschließlich Webhosting und Markenrechten, werden aus privaten Mitteln finanziert.
 
@@ -22,7 +22,7 @@ Es bestehen keine geschäftlichen Beziehungen zu den Anbietern verlinkter Produk
 
 Lehrmeinungen und Empfehlungen in der Notfallmedizin befinden sich im stetigen Wandel. Trotz sorgfältiger Überprüfung besteht für die dargestellten Untersuchungs- und Handlungsempfehlungen, Medikamentenvorschläge und Verweise auf externe Inhalte kein Anspruch auf Vollständigkeit, Fehlerfreiheit oder Aktualität.
 
-Die angebotenen Checklisten, einschließlich der RSI-Checkliste, dienen der Aus- und Weiterbildung sowie der strukturierten Vorbereitung notfallmedizinischer Abläufe. Genannte Medikamente sind als Vorschläge zu verstehen und stellen keine patientenindividuelle Therapieempfehlung dar. Die Auswahl, Indikation, Dosierung und Anwendung von Medikamenten müssen durch qualifiziertes Fachpersonal anhand der konkreten klinischen Situation, der aktuellen Fachinformationen und der geltenden lokalen Vorgaben eigenständig beurteilt werden. Die Checklisten ersetzen weder klinische Entscheidungsprozesse noch lokale Standards oder die fachliche Verantwortung der Anwenderinnen und Anwender.
+Die angebotenen Checklisten, einschließlich der RSI-Checkliste, dienen der Aus- und Weiterbildung sowie der strukturierten Vorbereitung notfallmedizinischer Abläufe. Genannte Medikamente sind als Vorschläge zu verstehen und stellen keine patientenindividuelle Therapieempfehlung dar. Die Auswahl, Indikation, Dosierung und Anwendung von Medikamenten müssen durch qualifiziertes Fachpersonal anhand der konkreten klinischen Situation, der aktuellen Fachinformationen und der geltenden lokalen Vorgaben eigenständig beurteilt werden. Die Checklisten ersetzen weder klinische Entscheidungsprozesse noch lokale Standards oder die fachliche Verantwortung der Anwender:innen.
 
 ## Haftungsausschluss
 
@@ -58,9 +58,9 @@ Die Apps dienen ausschließlich dem Training mit zeitlicher Dokumentation:
 
 Weitere Verwendungszwecke sind nicht vorgesehen. Die Apps sind ausschließlich für Training und Ausbildung bestimmt. Sie sind kein Medizinprodukt und nicht für Diagnose, Vorbeugung, Überwachung, Behandlung oder Linderung von Krankheiten bestimmt.
 
-### Nicht für echte Patienten
+### Nicht für echte Patient:innen
 
-Die Apps dürfen nicht bei der Versorgung echter Patienten eingesetzt werden, auch nicht bei realer Reanimation, Anästhesie, Atemwegssicherung oder anderen medizinischen Notfällen. Sie ersetzen weder klinisches Urteilsvermögen, medizinische Ausbildung, aktuelle Leitlinien, offizielle Protokolle, medizinische Geräte noch etablierte klinische Zeitmessung oder Dokumentation.
+Die Apps dürfen nicht bei der Versorgung echter Patient:innen eingesetzt werden, auch nicht bei realer Reanimation, Anästhesie, Atemwegssicherung oder anderen medizinischen Notfällen. Sie ersetzen weder klinisches Urteilsvermögen, medizinische Ausbildung, aktuelle Leitlinien, offizielle Protokolle, medizinische Geräte noch etablierte klinische Zeitmessung oder Dokumentation.
 
 ### Dosen und Zeiten
 
