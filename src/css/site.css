@@ -593,3 +593,8 @@ ol.steps b.hr{background:#F6CFD0;color:#A20D09}
 .kflow .kf-final p.kf-fsub{text-align:center;margin-top:-6px!important}
 .kf-sides li.k-grn{display:flex;align-items:center}
 @media (max-width:520px){.kf-final .kf-fl{position:static;margin:0 0 -2px!important}.kf-final .kf-frow p.kf-ftitle{font-size:18px}}
+h3.kseite{font-size:22px;font-weight:600;margin:18px 0 0;color:var(--ink)}
+.sec.abl2{margin-top:10px}
+@media (max-width:820px){.sec.part.abl2,.sec.abl2{margin-bottom:0}h3.kseite{font-size:19px;margin-top:12px}}
+@media (max-width:820px){.sec.abl2{margin-bottom:-62px}}
+@media (max-width:820px){h3.kseite + .split{margin-top:-16px}.sec.abl2{margin-top:-30px}}
