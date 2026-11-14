@@ -131,7 +131,7 @@
     var segs=document.querySelectorAll('.segb');
     segs.forEach(function(b){b.addEventListener('click',function(){
       var v=b.getAttribute('data-v');
-      segs.forEach(function(x){x.setAttribute('aria-pressed',x===b?'true':'false');});
+      segs.forEach(function(x){x.setAttribute('aria-pressed',x.getAttribute('data-v')===v?'true':'false');});
       document.querySelectorAll('img.medv').forEach(function(im){im.hidden=im.getAttribute('data-v')!==v;});
     });});
   })();
