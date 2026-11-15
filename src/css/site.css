@@ -658,3 +658,10 @@ h3.kseite{font-size:22px;font-weight:600;margin:18px 0 0;color:var(--ink)}
 .kf-prep:not(.kf-ne) .kf-step{min-height:60px;box-sizing:border-box}@media (max-width:520px){.kf-prep:not(.kf-ne) .kf-step{min-height:57px}}
 .kflow + div + section,.sec.part.after-kf{margin-top:56px}
 @media (max-width:820px){.sec h3.kseite + .split.nk.al{margin-top:12px}.sec h3.kseite + .split.nk.al > figure{margin-top:0}}
+.cfx{margin-top:14px}
+.cfx > summary{display:inline-flex;align-items:center;gap:8px;cursor:pointer;font-weight:600;padding:10px 16px;border:1px solid var(--ink);list-style:none}
+.cfx > summary::-webkit-details-marker{display:none}
+.cfx > summary::after{content:"";width:8px;height:8px;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:rotate(45deg);margin:-3px 0 0 4px;transition:transform .15s}
+.cfx[open] > summary::after{transform:rotate(-135deg);margin-top:3px}
+.cfx[open] > summary{background:var(--ink);color:#fff}
+.cfx .cf{margin-top:16px}

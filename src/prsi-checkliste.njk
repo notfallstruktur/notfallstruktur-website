@@ -183,7 +183,21 @@ permalink: /prsi-checkliste/
       <h2 class="dot">Eigene Version für deinen Rettungsdienst?</h2>
       <div class="txt">
         <p>Für einen optimalen Ablauf empfehlen wir eine feste Integration und das Beüben in Simulationstrainings mit allen Mitarbeitenden.</p>
-        <p>Auf Anfrage bieten wir das Konzept gerne individuell anpassbar für deinen Rettungsdienst oder deine Klinik an. <a href="/kontakt/">Schreib uns über das Kontaktformular.</a></p>
+        <p>Auf Anfrage bieten wir das Konzept gerne individuell anpassbar für deinen Rettungsdienst oder deine Klinik an.</p>
+        <details class="cfx">
+          <summary>Schreib uns über das Kontaktformular</summary>
+          <form class="cf" id="cfForm" novalidate>
+            <label for="cfName">Dein Name</label>
+            <input id="cfName" name="name" type="text" autocomplete="name">
+            <label for="cfMail">E-Mail-Adresse</label>
+            <input id="cfMail" name="email" type="email" autocomplete="email" required>
+            <label for="cfMsg">Nachricht</label>
+            <textarea id="cfMsg" name="message" required placeholder="z. B. Rettungsdienst oder Klinik, Anzahl Fahrzeuge, gewünschte Anpassungen"></textarea>
+            {% if site.turnstileSiteKey %}<div class="cf-turnstile" data-sitekey="{{ site.turnstileSiteKey }}" data-language="de"></div>{% endif %}
+            <button type="submit">Absenden</button>
+          </form>
+          <p class="ok" id="cfOk" hidden>Danke für deine Nachricht.</p>
+        </details>
       </div>
     </section>
     <section class="sec part" aria-labelledby="h-rsifb">
