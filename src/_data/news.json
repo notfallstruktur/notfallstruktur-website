@@ -1,6 +1,11 @@
 {
   "eintraege": [
     {
+      "datum": "2026-11-14",
+      "neu": true,
+      "text": "Die [pRSI-Checklisten](/prsi-checkliste/) wurden aktualisiert (Stand 14.11.2026)."
+    },
+    {
       "datum": "2026-10-22",
       "neu": true,
       "text": "notfall**struktur**.org erscheint mit einer neuen Website."
