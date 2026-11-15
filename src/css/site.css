@@ -629,3 +629,10 @@ h3.kseite{font-size:22px;font-weight:600;margin:18px 0 0;color:var(--ink)}
 .kminis{gap:30px;margin:26px 0 8px}
 @media (max-width:520px){.kmini{width:31%}.kminis{gap:10px}.ksk{padding:6px 6px 6px;gap:4px}.kst{font-size:9px;gap:3px}.ksi{width:13px;height:13px}.kl u{height:2.5px}}
 .k-m .ksi{width:24px;height:24px}@media (max-width:520px){.k-m .ksi{width:17px;height:17px}}
+.kf-pillrow{margin:18px 0 0}
+.kf-pillrow .kf-top{margin:0;font-size:15px;padding:8px 18px 8px 14px}
+.kf-pillrow .kf-top svg{width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.kf-vs{margin:12px 0 6px 2px!important}
+.kf-ttoin{display:flex;flex-direction:column;align-items:center;gap:10px;background:var(--k-yel);border-radius:10px;padding:12px 14px 14px;text-align:center}
+.kf-ttoin .kf-split-m{background:#fff;text-align:left}
+@media (max-width:520px){.kf-pillrow .kf-top{font-size:13px;padding:6px 12px 6px 10px}.kf-ttoin{padding:10px 8px 10px}}
