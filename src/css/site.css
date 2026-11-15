@@ -637,3 +637,8 @@ h3.kseite{font-size:22px;font-weight:600;margin:18px 0 0;color:var(--ink)}
 .kf-ttoin .kf-split-m{background:#fff;text-align:left}
 @media (max-width:520px){.kf-pillrow .kf-top{font-size:13px;padding:6px 12px 6px 10px}.kf-ttoin{padding:10px 8px 10px}}
 .kf-ttd{font-weight:500;font-size:.85em}
+.kf-tl{margin:0;padding-left:18px;text-align:left;font-weight:700;font-size:17px}
+.kf-tl li{margin:2px 0}
+.kf-ttoin .kf-split-m{border-radius:16px;padding:10px 18px 10px 10px}
+.kf-note{margin:10px 0 0!important;text-align:center;font-size:15px;color:var(--ink2)}
+@media (max-width:520px){.kf-tl{font-size:14.5px}.kf-note{font-size:13.5px}}
