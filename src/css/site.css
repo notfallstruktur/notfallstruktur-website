@@ -665,3 +665,4 @@ h3.kseite{font-size:22px;font-weight:600;margin:18px 0 0;color:var(--ink)}
 .cfx[open] > summary::after{transform:rotate(-135deg);margin-top:3px}
 .cfx[open] > summary{background:var(--ink);color:#fff}
 .cfx .cf{margin-top:16px}
+.cfx > summary{font-weight:400;padding:12px 20px;font-size:16px}
