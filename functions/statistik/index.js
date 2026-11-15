@@ -15,6 +15,8 @@ const BESUCHER_AB = "2026-11-12";
 // Alte Dateinamen (rsi_…) zählen zu den neuen (prsi_…).
 const normDatei = (d) => String(d).replace(/^rsi_checklisten/i, "prsi_checklisten");
 const summiere = (rows, keys) => { const m = {}; for (const r of rows) { const nr = { ...r, datei: normDatei(r.datei) }; const k = keys.map((x) => nr[x]).join("\u0001"); if (m[k]) m[k].n += r.n; else m[k] = nr; } return Object.values(m); };
+// Sortierschlüssel: Versionsdatum (dd.mm.yyyy) als yyyy-mm-dd, ohne Version ganz unten.
+const verKey = (d) => { const m = String(d).match(/Version (\d{2})\.(\d{2})\.(\d{4})/); return m ? m[3] + "-" + m[2] + "-" + m[1] : ""; };
 const dokName = (d) => String(d).split(" · Version")[0];
 const esc = (s) => String(s ?? "").replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
 
@@ -80,7 +82,7 @@ ${tab(["Dokument", "Gesamt", "Letzte 30 Tage"], dokZeilen.map((r) => `<tr><td>${
 <h3>Nach Land</h3>
 ${tab(["Dokument", "Länder (Anzahl Downloads)"], landZeilen.map((r) => `<tr><td>${esc(r.k)}</td><td>${r.laender.map((l) => esc(landName(l[0])) + ": <b>" + l[1] + "</b>").join(" · ")}</td></tr>`))}
 <h3>Nach Version</h3>
-${tab(["Datei", "Gesamt", "Letzte 30 Tage"], dl.map((r) => `<tr><td>${esc(r.datei)}</td><td class="n">${r.n}</td><td class="n">${d30[r.datei] || 0}</td></tr>`))}
+${tab(["Datei", "Gesamt", "Letzte 30 Tage"], [...dl].sort((a, b) => verKey(b.datei).localeCompare(verKey(a.datei)) || String(a.datei).localeCompare(String(b.datei))).map((r) => `<tr><td>${esc(r.datei)}</td><td class="n">${r.n}</td><td class="n">${d30[r.datei] || 0}</td></tr>`))}
 <h2>5. Seitenaufrufe</h2>
 <p>Gezählt seit ${BESUCHER_AB.split("-").reverse().join(".")}, ohne Bots und Rechenzentren.</p>
 ${tab(["Seite", "Gesamt", "Letzte 30 Tage"], seitenListe.map((r) => `<tr><td>${esc(SEITEN[r.seite])}</td><td class="n">${r.n}</td><td class="n">${s30[r.seite] || 0}</td></tr>`))}
