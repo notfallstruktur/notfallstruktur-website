@@ -192,7 +192,7 @@ permalink: /prsi-checkliste/
             <label for="cfMail">E-Mail-Adresse</label>
             <input id="cfMail" name="email" type="email" autocomplete="email" required>
             <label for="cfMsg">Nachricht</label>
-            <textarea id="cfMsg" name="message" required placeholder="z. B. Rettungsdienst oder Klinik, Anzahl Fahrzeuge, gewünschte Anpassungen"></textarea>
+            <textarea id="cfMsg" name="message" required></textarea>
             {% if site.turnstileSiteKey %}<div class="cf-turnstile" data-sitekey="{{ site.turnstileSiteKey }}" data-language="de"></div>{% endif %}
             <button type="submit">Absenden</button>
           </form>

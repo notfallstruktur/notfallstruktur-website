@@ -32,6 +32,7 @@ async function tabellen(db) {
     db.prepare("CREATE TABLE IF NOT EXISTS besucher_tag (tag TEXT PRIMARY KEY, anzahl INTEGER NOT NULL DEFAULT 0)"),
     db.prepare("CREATE TABLE IF NOT EXISTS besucher_kennung (tag TEXT NOT NULL, kennung TEXT NOT NULL, PRIMARY KEY (tag, kennung))"),
     db.prepare("CREATE TABLE IF NOT EXISTS herkunft (quelle TEXT NOT NULL, tag TEXT NOT NULL, anzahl INTEGER NOT NULL DEFAULT 0, PRIMARY KEY (quelle, tag))"),
+    db.prepare("CREATE TABLE IF NOT EXISTS besucher_os (os TEXT NOT NULL, tag TEXT NOT NULL, anzahl INTEGER NOT NULL DEFAULT 0, PRIMARY KEY (os, tag))"),
     db.prepare("CREATE TABLE IF NOT EXISTS tagessalz (tag TEXT PRIMARY KEY, wert TEXT NOT NULL)")
   ]);
   tabellenOk = true;
@@ -69,6 +70,7 @@ async function besucher(db, request, tag) {
   const r = await db.prepare("INSERT OR IGNORE INTO besucher_kennung (tag, kennung) VALUES (?, ?)").bind(tag, kennung).run();
   if (r.meta && r.meta.changes > 0) {
     await db.prepare("INSERT INTO besucher_tag (tag, anzahl) VALUES (?, 1) ON CONFLICT(tag) DO UPDATE SET anzahl = anzahl + 1").bind(tag).run();
+    await db.prepare("INSERT INTO besucher_os (os, tag, anzahl) VALUES (?, ?, 1) ON CONFLICT(os, tag) DO UPDATE SET anzahl = anzahl + 1").bind(betriebssystem(request), tag).run();
   }
 }
 
@@ -108,4 +110,17 @@ export async function zaehleHerkunft(db, request, url) {
   const tag = heute();
   await tabellen(db);
   await db.prepare("INSERT INTO herkunft (quelle, tag, anzahl) VALUES (?, ?, 1) ON CONFLICT(quelle, tag) DO UPDATE SET anzahl = anzahl + 1").bind(quelle, tag).run();
+}
+
+// Nur grobe Familie, keine Versionen. iPads mit Safari melden sich meist als macOS.
+export function betriebssystem(request) {
+  const h = (request.headers.get("sec-ch-ua-platform") || "").replace(/"/g, "").toLowerCase();
+  const ua = request.headers.get("user-agent") || "";
+  if (h === "android" || /Android/i.test(ua)) return "Android";
+  if (/iPhone|iPad|iPod/i.test(ua) || h === "ios") return "iOS / iPadOS";
+  if (h === "windows" || /Windows/i.test(ua)) return "Windows";
+  if (h === "macos" || /Mac OS X|Macintosh/i.test(ua)) return "macOS";
+  if (h === "chrome os" || /CrOS/i.test(ua)) return "ChromeOS";
+  if (h === "linux" || /Linux/i.test(ua)) return "Linux";
+  return "Sonstige";
 }

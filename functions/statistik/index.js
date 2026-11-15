@@ -32,6 +32,8 @@ export async function onRequestGet({ request, env }) {
     q("SELECT datei, land, SUM(anzahl) n FROM downloads_land GROUP BY datei, land ORDER BY datei, n DESC")
   ]);
   const besSumme30 = bes.filter((r) => r.tag >= new Date(Date.now() - 30*864e5).toISOString().slice(0,10)).reduce((a, r) => a + r.anzahl, 0);
+  const osl = await q("SELECT os, SUM(anzahl) n, SUM(CASE WHEN tag >= date('now','-30 day') THEN anzahl ELSE 0 END) n30 FROM besucher_os GROUP BY os ORDER BY n DESC").catch(() => []);
+  const osSumme = osl.reduce((x, r) => x + r.n, 0);
   const hk = await q("SELECT quelle, SUM(anzahl) n, SUM(CASE WHEN tag >= date('now','-30 day') THEN anzahl ELSE 0 END) n30 FROM herkunft GROUP BY quelle ORDER BY n DESC LIMIT 50").catch(() => []);
   let [dl, dl30, seiten, seiten30, fb, msg] = await Promise.all([
     q("SELECT datei, SUM(anzahl) n FROM downloads GROUP BY datei ORDER BY n DESC"),
@@ -69,14 +71,17 @@ ${tab(["Tag", "Besucher"], bes.map((r) => `<tr><td>${esc(r.tag)}</td><td class="
 <h2>2. Woher kommen Besucher (Einstiege)</h2>
 <p>Nur Herkunfts-Domain oder Link-Kennung (?quelle=…). Viele Messenger, E-Mail-Programme und Apps geben keine Herkunft weiter und erscheinen als „direkt / unbekannt“. Gezählt seit 11.11.2026.</p>
 ${tab(["Herkunft", "Gesamt", "Letzte 30 Tage"], hk.map((r) => `<tr><td>${esc(r.quelle)}</td><td class="n">${r.n}</td><td class="n">${r.n30}</td></tr>`))}
-<h2>3. Downloads</h2>
+<h2>3. Betriebssysteme</h2>
+<p>Einmal pro verschiedenem Besucher und Tag, nur grobe Familie ohne Versionen. iPads mit Safari erscheinen meist als macOS. Gezählt seit 15.11.2026.</p>
+${tab(["Betriebssystem", "Gesamt", "Anteil", "Letzte 30 Tage"], osl.map((r) => `<tr><td>${esc(r.os)}</td><td class="n">${r.n}</td><td class="n">${osSumme ? Math.round(r.n * 100 / osSumme) : 0} %</td><td class="n">${r.n30}</td></tr>`))}
+<h2>4. Downloads</h2>
 <h3>Übersicht pro Dokument (alle Versionen)</h3>
 ${tab(["Dokument", "Gesamt", "Letzte 30 Tage"], dokZeilen.map((r) => `<tr><td>${esc(r.k)}</td><td class="n">${r.n}</td><td class="n">${r.n30}</td></tr>`).concat([`<tr><td><b>Summe</b></td><td class="n"><b>${dokSumme}</b></td><td class="n"><b>${dokSumme30}</b></td></tr>`]))}
 <h3>Nach Land</h3>
 ${tab(["Dokument", "Länder (Anzahl Downloads)"], landZeilen.map((r) => `<tr><td>${esc(r.k)}</td><td>${r.laender.map((l) => esc(landName(l[0])) + ": <b>" + l[1] + "</b>").join(" · ")}</td></tr>`))}
 <h3>Nach Version</h3>
 ${tab(["Datei", "Gesamt", "Letzte 30 Tage"], dl.map((r) => `<tr><td>${esc(r.datei)}</td><td class="n">${r.n}</td><td class="n">${d30[r.datei] || 0}</td></tr>`))}
-<h2>4. Seitenaufrufe</h2>
+<h2>5. Seitenaufrufe</h2>
 <p>Gezählt seit ${BESUCHER_AB.split("-").reverse().join(".")}, ohne Bots und Rechenzentren.</p>
 ${tab(["Seite", "Gesamt", "Letzte 30 Tage"], seitenListe.map((r) => `<tr><td>${esc(SEITEN[r.seite])}</td><td class="n">${r.n}</td><td class="n">${s30[r.seite] || 0}</td></tr>`))}
 <h2>Feedback (${fb.length})</h2>
