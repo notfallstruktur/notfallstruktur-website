@@ -672,3 +672,4 @@ h3.kseite{font-size:22px;font-weight:600;margin:18px 0 0;color:var(--ink)}
 .cfx[open] > summary::after{margin:0 0 0 8px}
 .cfx > summary:hover{color:var(--red)}
 .cfx{margin-top:4px}
+.cfx > summary,.cfx[open] > summary{font-weight:300}
