@@ -80,7 +80,7 @@ ${tab(["Betriebssystem", "Gesamt", "Anteil", "Letzte 30 Tage"], osl.map((r) => `
 <h3>Übersicht pro Dokument (alle Versionen)</h3>
 ${tab(["Dokument", "Gesamt", "Letzte 30 Tage"], dokZeilen.map((r) => `<tr><td>${esc(r.k)}</td><td class="n">${r.n}</td><td class="n">${r.n30}</td></tr>`).concat([`<tr><td><b>Summe</b></td><td class="n"><b>${dokSumme}</b></td><td class="n"><b>${dokSumme30}</b></td></tr>`]))}
 <h3>Nach Land</h3>
-${tab(["Dokument", "Länder (Anzahl Downloads)"], landZeilen.map((r) => `<tr><td>${esc(r.k)}</td><td>${r.laender.map((l) => esc(landName(l[0])) + ": <b>" + l[1] + "</b>").join(" · ")}</td></tr>`))}
+${tab(["Dokument", "Gesamt", "Länder (Anzahl Downloads)"], landZeilen.map((r) => `<tr><td>${esc(r.k)}</td><td class="n">${r.laender.reduce((x, l) => x + l[1], 0)}</td><td>${r.laender.map((l) => esc(landName(l[0])) + ": <b>" + l[1] + "</b>").join(" · ")}</td></tr>`))}
 <h3>Nach Version</h3>
 ${tab(["Datei", "Gesamt", "Letzte 30 Tage"], [...dl].sort((a, b) => verKey(b.datei).localeCompare(verKey(a.datei)) || String(a.datei).localeCompare(String(b.datei))).map((r) => `<tr><td>${esc(r.datei)}</td><td class="n">${r.n}</td><td class="n">${d30[r.datei] || 0}</td></tr>`))}
 <h2>5. Seitenaufrufe</h2>
