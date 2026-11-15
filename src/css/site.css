@@ -666,3 +666,9 @@ h3.kseite{font-size:22px;font-weight:600;margin:18px 0 0;color:var(--ink)}
 .cfx[open] > summary{background:var(--ink);color:#fff}
 .cfx .cf{margin-top:16px}
 .cfx > summary{font-weight:400;padding:12px 20px;font-size:16px}
+/* Kontakt-Aufklapper als Textlink */
+.cfx > summary,.cfx[open] > summary{display:inline;padding:0;border:0;background:none;color:inherit;font-weight:400;font-size:inherit;text-decoration:underline;text-underline-offset:3px;cursor:pointer}
+.cfx > summary::after{display:inline-block;width:6px;height:6px;margin:0 0 3px 8px;vertical-align:middle}
+.cfx[open] > summary::after{margin:0 0 0 8px}
+.cfx > summary:hover{color:var(--red)}
+.cfx{margin-top:4px}
