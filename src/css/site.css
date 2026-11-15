@@ -642,3 +642,4 @@ h3.kseite{font-size:22px;font-weight:600;margin:18px 0 0;color:var(--ink)}
 .kf-ttoin .kf-split-m{border-radius:16px;padding:10px 18px 10px 10px}
 .kf-note{margin:10px 0 0!important;text-align:center;font-size:15px;color:var(--ink2)}
 @media (max-width:520px){.kf-tl{font-size:14.5px}.kf-note{font-size:13.5px}}
+@media (max-width:520px){.kf-tl li{margin:0 0 8px}.kf-tl li:last-child{margin-bottom:0}}
